@@ -7,6 +7,7 @@
 	<title>@yield('judul')</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/manual.css') }}">
 
 </head>
 <body>
@@ -31,14 +32,17 @@
 		  	</div>
 		</div>
 		<div class="right menu">
-		  <a class="ui item">
-		    Logout
-		  </a>
+		  	<a class="ui item">
+		    	Logout
+		  	</a>
 		</div>
 	</div>
 
 	<div class="ui menu grid mobile only" style="margin-top: 0px;">
-	  <a class="active item mobile only" onclick="tampil();"><i class="icon book blue"></i></a>
+		<a class="active item mobile only" onclick="tampil();"><i class="icon book blue"></i></a>
+		<div class="header item">
+    		Artikel
+  		</div>
 	</div>
 
 	<div class="ui longer modal">
@@ -79,34 +83,6 @@
 	</footer>
 
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-	<script type="text/javascript">
-		function buatSlug(){
-            var judul = $('#judul').val();
-            $('#slug').val(slug(judul));
-        }
-
-		$('.ui.dropdown')
-  			.dropdown({
-  				on : 'hover'
-  			});
-
-		function tampil(){
-			$('.ui.longer.modal').
-			modal({
-				blurring: true,
-				transition: 'fade in'
-			}).
-			modal('show');
-  		}
-
-  		function slug(judul){
-		  return judul.toString().toLowerCase()
-		    .replace(/\s+/g, '-')           
-		    .replace(/[^\w\-]+/g, '')      
-		    .replace(/\-\-+/g, '-')        
-		    .replace(/^-+/, '')           
-		    .replace(/-+$/, '');          
-		}
-	</script>
+	<script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
 </body>
 </html>
