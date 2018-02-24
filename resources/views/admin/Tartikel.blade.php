@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('judul','Tambah Artikel')
+@section('editor','https://cloud.tinymce.com/stable/tinymce.min.js')
 
 @section('isi')
 	<div class="ui container">
@@ -81,6 +82,12 @@
 						  	</div>
 						</div>
 
+						<div class="one field">
+							<div class="field">
+								<label>Artikel</label>
+								<textarea class=""></textarea>
+							</div>
+						</div>
 						<div class="full right">
 							<div class="ui button inverted blue">Simpan</div>
 						</div>

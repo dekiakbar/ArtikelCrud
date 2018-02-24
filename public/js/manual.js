@@ -39,4 +39,4 @@ $('input:file', '.ui.action.input')
   .on('change', function(e) {
     var Nfile = e.target.files[0].name;
     $('input:text', $(e.target).parent()).val(Nfile);
-  });
+});

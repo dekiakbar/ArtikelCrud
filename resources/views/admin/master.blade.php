@@ -86,7 +86,7 @@
 
 	@yield('isi')
 
-	<footer>
+	<footer style="margin-top: 10px;">
 		<div class="ui segment center aligned">
 			<p>&copy;{!! date('Y') !!} 
 				<a href="https://dekiakbar.com">Deki Akbar</a> | Made With :
