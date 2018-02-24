@@ -1,6 +1,5 @@
 @extends('admin.master')
 @section('judul','Tambah Artikel')
-@section('editor','https://cloud.tinymce.com/stable/tinymce.min.js')
 
 @section('isi')
 	<div class="ui container">
@@ -14,7 +13,8 @@
 					</div>
 		  		</div>
 			    <div class="ui segment stacked raised blue">
-			    	<form class="ui form">
+			    	<form class="ui form" method="post" action="">
+			    		{{ csrf_field() }}
 						<h4 class="ui dividing header">Tambah Artikel</h4>
 						
 						<div class="two field">
@@ -88,9 +88,20 @@
 								<textarea class=""></textarea>
 							</div>
 						</div>
-						<div class="full right">
-							<div class="ui button inverted blue">Simpan</div>
+
+						<div class="one field">
+							<div class="field">
+								<button class="ui animated fade button inverted blue right floated">
+									<div class="hidden content">
+										<i class="file icon"></i>
+									</div>
+									<div class="visible content">
+										Simpan    
+									</div>
+								</button>	
+							</div>
 						</div>
+
 					</form>
 			    </div>
 		  	</div>

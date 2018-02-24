@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('admin.Tartikel');
+    return view('admin.Ttag');
 });
