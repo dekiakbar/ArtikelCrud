@@ -31,6 +31,14 @@
 			    <div class="item"><i class="icon list"></i>Daftar Kategori</div>
 		  	</div>
 		</div>
+		<div class="ui pointing dropdown link item">
+			<span class="text">Tag</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+			    <div class="item"><i class="icon plus"></i>Tambah Tag</div>
+			    <div class="item"><i class="icon list"></i>Daftar Tag</div>
+		  	</div>
+		</div>
 		<div class="right menu">
 		  	<a class="ui item">
 		    	Logout
@@ -50,6 +58,13 @@
 	  	<div class="content">
 	  		<div class="ui grid center aligned">
 		  		<div class="ui vertical menu">
+		  			<div class="item">
+				    	<div class="header">Artikel</div>
+				    	<div class="menu">
+				      		<a class="item">Tambah Artikel</a>
+				      		<a class="item">Daftar Artikel</a>
+				    	</div>
+				  	</div>
 			  		<div class="item">
 			    		<div class="header">Kategori</div>
 			    		<div class="menu">
@@ -58,10 +73,10 @@
 			    		</div>
 			  		</div>
 				  	<div class="item">
-				    	<div class="header">Artikel</div>
+				    	<div class="header">Tag</div>
 				    	<div class="menu">
-				      		<a class="item">Tambah Artikel</a>
-				      		<a class="item">Daftar Artikel</a>
+				      		<a class="item">Tambah Tag</a>
+				      		<a class="item">Daftar Tag</a>
 				    	</div>
 				  	</div>
 		  		</div>
@@ -74,7 +89,7 @@
 	<footer>
 		<div class="ui segment center aligned">
 			<p>&copy;{!! date('Y') !!} 
-				<a href="https://dekiakbar.com">Dekiakbar.com</a> | Made With :
+				<a href="https://dekiakbar.com">Deki Akbar</a> | Made With :
 				<a target="_blank" href="https://Laravel.com">Laravel</a>
 				<i class="large pink heartbeat icon"></i>
 				<a target="_blank" href="https://Semantic-ui.com">Semantic</a>

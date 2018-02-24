@@ -5,7 +5,14 @@
 	<div class="ui container">
 		<div class="ui one column stackable grid">
 		  	<div class="ten column">
-			    <div class="ui segment stacked raised">
+		  		<div class="ui segment">
+		  			<div class="ui tiny breadcrumb">
+						  <a class="section">Dashboard</a>
+						  <span class="divider">/</span>
+						  <div class="active section">Input Artikel</div>
+					</div>
+		  		</div>
+			    <div class="ui segment stacked raised blue">
 			    	<form class="ui form">
 						<h4 class="ui dividing header">Tambah Artikel</h4>
 						
@@ -44,6 +51,24 @@
 						    </div>
 					  	</div>
 
+					  	<div class="two fields">
+							<div class="twelve wide field">
+								<label>Meta Keyword</label>
+								<input type="text" name="meta_keyword">
+							</div>
+
+							<div class="four wide field">
+								<label>Foto Artikel</label>
+								<div class="ui action input">
+									<input type="text" placeholder="" readonly>
+									<input type="file">
+									<div class="ui icon button">
+									  <i class="attach icon"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<div class="two fields">
 						  	<div class="field">
 						  		<label>Kutipan</label>
@@ -56,26 +81,8 @@
 						  	</div>
 						</div>
 
-						<div class="two fields">
-							<div class="ten wide field">
-								<label>Meta Keyword</label>
-								<input type="text" name="meta_keyword">
-							</div>
-							
-							<div class="six wide field">
-								<label>Foto Artikel</label>
-								<div class="ui action input">
-									<input type="text" placeholder="" readonly>
-									<input type="file">
-									<div class="ui icon button">
-									  <i class="attach icon"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="ui field text-centered">
-							<div class="ui button inverted blue" tabindex="0">Simpan</div>
+						<div class="full right">
+							<div class="ui button inverted blue">Simpan</div>
 						</div>
 					</form>
 			    </div>
