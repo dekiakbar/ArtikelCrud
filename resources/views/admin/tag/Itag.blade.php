@@ -2,6 +2,27 @@
 @section('judul','Daftar Tag')
 
 @section('isi')
+
+	<div class="ui small modal">
+		<div class="ui icon header">
+			<i class="trash icon"></i>
+			Hapus Data Tag
+		</div>
+		<div class="content right floated">
+			<p>Data Tag yang telah dihapus tidak bisa dikembalikan, Anda yakin ingin menghapus tag ini?</p>
+		</div>
+		<div class="actions">
+			<div class="ui red inverted cancel inverted button tidak">
+				<i class="remove icon"></i>
+				Tidak
+			</div>
+			<div class="ui green ok inverted button tidak ya">
+				<i class="checkmark icon"></i>
+				Iya
+			</div>
+		</div>
+	</div>
+
 	<div class="ui container">
 		<div class="ui one column stackable grid">
 			<div  class="ten column">
@@ -72,7 +93,7 @@
 							    	<td>{{ $tag->created_at->format('H:i:s j-M-Y') }}</td>
 							    	<td>{{ $tag->updated_at->format('H:i:s j-M-Y') }}</td>
 							    	<td class="center aligned">
-							    		<a href="" class="ui mini animated fade button inverted violet">
+							    		<a href="{{ url('tag/'.$tag->slug.'/edit') }}" class="ui mini animated fade button inverted violet">
 							    			<div class="hidden content">
 												<i class="edit icon"></i>
 											</div>
@@ -80,7 +101,7 @@
 												Edit    
 											</div>
 							    		</a>
-							    		<a href="" class="ui mini animated vertical button inverted red">
+							    		<a onclick="hapus()" id="hapus" data-slug="tag/{{ $tag->slug }}" data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
 							    			<div class="hidden content">
 												<i class="delete icon"></i>
 											</div>

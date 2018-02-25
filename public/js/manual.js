@@ -46,16 +46,20 @@ $('input:file', '.ui.action.input')
     $('input:text', $(e.target).parent()).val(Nfile);
 });
 
+//function URL hapus
+function url(){
+
+}
 //js konfirmasi delet kategori
-function konfirHapus(){
-  var slug = $('#hapus').data('slug');
+function hapus(){
   var token = $('#hapus').data('token');
+  var urlhapus = $('#hapus').data('slug'); 
   $('.ui.small.modal')
   .modal({
     onApprove: function (e) {
       if (e.hasClass('ya')) {
           $.ajax({
-            url:'/kategori/'+slug,
+            url: urlhapus,
             type: 'post',
             data: {_method: 'delete', _token :token, },
             success:function(msg){
@@ -78,3 +82,5 @@ function konfirHapus(){
 $(".close.icon").click(function(){
   $(this).parent().hide();
 });
+
+

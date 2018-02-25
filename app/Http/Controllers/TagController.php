@@ -64,7 +64,9 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::where('slug',$id)->firstOrFail();
+        $kategoris = Kategori::all();
+        return view('admin.tag.Etag',compact('tag','kategoris'));
     }
 
     /**
@@ -76,7 +78,20 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ubah = Tag::where('slug',$id)->firstOrFail();
+        $ubah->nama_tag = $request->input('nama_tag');
+        $ubah->slug = $request->input('slug');
+        $ubah->kategori_id = $request->input('kategori_id');
+
+        if ($ubah->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data tag berhasil diubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data tag gagal diubah');
+        }
+
+        return redirect('tag');
     }
 
     /**
@@ -87,6 +102,16 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Tag::where('slug',$id)->firstOrFail();
+        
+         if ($hapus->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data tag berhasil dihapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data tag gagal dihapus');
+        } 
+
+        return redirect('tag');       
     }
 }

@@ -98,7 +98,7 @@
 													Edit    
 												</div>
 								    		</a>
-								    		<a onclick="konfirHapus()" id="hapus" data-slug="{{ $kategori->slug }}" 
+								    		<a onclick="hapus()" id="hapus" data-slug="kategori/{{ $kategori->slug }}" 
 								    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
 								    			<div class="hidden content">
 													<i class="delete icon"></i>
