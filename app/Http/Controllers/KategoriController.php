@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Kategori;
+
 class KategoriController extends Controller
 {
     /**
@@ -11,9 +13,10 @@ class KategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Kategori::paginate(10);
+        return view('admin.kategori.Ikategori',compact('data'))->with('no',($request->input('page',1)-1)*10);
     }
 
     /**
@@ -23,7 +26,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori.Tkategori');
     }
 
     /**
@@ -34,7 +37,8 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Kategori::create($request->all());
+        return redirect('/kategori');
     }
 
     /**
@@ -56,7 +60,8 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Kategori::where('slug','=',$id)->firstOrFail();
+        return view('admin.kategori.Ekategori', compact('data'));
     }
 
     /**
@@ -68,7 +73,11 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Kategori::where('slug',$id)->firstOrFail();
+        $update->nama_kategori  = $request->input('nama_kategori');
+        $update->slug           = $request->input('slug');
+        $update->save();
+        return redirect('kategori');
     }
 
     /**
@@ -79,6 +88,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Kategori::where('slug',$id)->firstOrFail();
+        $hapus->delete();
+        return redirect ('/kategori');
     }
 }

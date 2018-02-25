@@ -13,20 +13,21 @@
 					</div>
 		  		</div>
 			    <div class="ui segment stacked raised violet">
-			    	<form class="ui form" method="post" action="{{ url('kategori') }}">
+			    	<form class="ui form" method="post" action="{{ url('kategori/'.$data->slug) }}">
 			    		{{ csrf_field() }}
+			    		<input type="hidden" name="_method" value="PATCH">
 						<h4 class="ui dividing header">Tambah Kategori</h4>
 						
 						<div class="two field">
 							<div class="two fields">
 								<div class="field">
 									<label>Judul</label>
-								  	<input name="nama_kategori" id="judul" placeholder="Nama Kategori" type="text" onkeyup="buatSlug()">
+								  	<input name="nama_kategori" value="{{ $data->nama_kategori }}" id="judul" placeholder="Nama Kategori" type="text" onkeyup="buatSlug()">
 								</div>
 
 								<div class="field">
 									<label>Slug</label>
-								  	<input name="slug" id="slug" placeholder="Slug " type="text">
+								  	<input name="slug" value="{{ $data->slug }}" id="slug" placeholder="Slug " type="text">
 								</div>
 							</div>
 						</div>
@@ -38,7 +39,7 @@
 										<i class="file icon"></i>
 									</div>
 									<div class="visible content">
-										Simpan    
+										Perbaharui    
 									</div>
 								</button>	
 							</div>

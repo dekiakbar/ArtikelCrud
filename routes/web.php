@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('admin.artikel.Dartikel');
 });
+
+Route::Resource('/kategori','KategoriController');
