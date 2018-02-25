@@ -6,10 +6,18 @@
 		<div class="ui one column stackable grid">
 			<div  class="ten column">
 				
+				<div class="ui segment">
+		  			<div class="ui tiny breadcrumb">
+						  <a class="section">Dashboard</a>
+						  <span class="divider">/</span>
+						  <div class="active section">Daftar Artikel</div>
+					</div>
+		  		</div>
+
 				<div class="ui segment raised">
 					<h4 class="ui horizontal divider header">
 						<i class="list icon"></i>
-						Daftar Artikel
+						Artikel
 					</h4>
 
 					<form class="ui right aligned category search">

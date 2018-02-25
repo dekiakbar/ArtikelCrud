@@ -13,7 +13,7 @@
 <body>
 	<div class="ui secondary pointing menu grid computer only blue">
 		<div class="header item">
-    		Artikel
+    		Laravel Artikel
   		</div>
 		<div class="ui pointing dropdown link item">
 			<span class="text">Artikel</span>
@@ -47,9 +47,11 @@
 	</div>
 
 	<div class="ui menu grid mobile only" style="margin-top: 0px;">
-		<a class="active item mobile only" onclick="tampil();"><i class="icon book blue"></i></a>
 		<div class="header item">
-    		Artikel
+    		Laravel Artikel
+  		</div>
+  		<div class="right menu">
+  			<a class="ui item mobile only" onclick="tampil();"><i class="icon list blue"></i></a>
   		</div>
 	</div>
 
