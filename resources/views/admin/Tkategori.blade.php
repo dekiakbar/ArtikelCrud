@@ -33,7 +33,7 @@
 
 						<div class="one field">
 							<div class="field">
-								<button class="ui animated fade button inverted blue right floated">
+								<button class="ui animated fade button inverted blue">
 									<div class="hidden content">
 										<i class="file icon"></i>
 									</div>

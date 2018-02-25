@@ -52,10 +52,18 @@
 						    </div>
 					  	</div>
 
-					  	<div class="two fields">
-							<div class="twelve wide field">
+					  	<div class="three fields">
+							<div class="ten wide field">
 								<label>Meta Keyword</label>
-								<input type="text" name="meta_keyword">
+								<input type="text" name="meta_keyword" placeholder="Pisahkan kata menggunakan koma">
+							</div>
+
+							<div class="two wide field">
+								<label>Status</label>
+								<select class="ui fluid dropdown" name="status">
+						        	<option value="pending">Pending</option>
+						        	<option value="release">Release</option>				      
+								</select>
 							</div>
 
 							<div class="four wide field">
@@ -73,12 +81,12 @@
 						<div class="two fields">
 						  	<div class="field">
 						  		<label>Kutipan</label>
-		    					<textarea rows="3" name="kutipan"></textarea>
+		    					<textarea rows="3" name="kutipan" placeholder="Kutipan tentang Artikel"></textarea>
 						  	</div>	
 
 						  	<div class="field">
 						  		<label>Meta Deskripsi</label>
-						  		<textarea rows="3" name="meta_deskripsi"></textarea>
+						  		<textarea rows="3" name="meta_deskripsi" placeholder="Deskripsi SEO"></textarea>
 						  	</div>
 						</div>
 
@@ -91,7 +99,7 @@
 
 						<div class="one field">
 							<div class="field">
-								<button class="ui animated fade button inverted blue right floated">
+								<button class="ui animated fade button inverted blue">
 									<div class="hidden content">
 										<i class="file icon"></i>
 									</div>

@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('admin.Ttag');
+    return view('admin.Itag');
 });

@@ -23,6 +23,7 @@ class ArtikelCrud extends Migration
             $table->string('meta_keyword');
             $table->string('meta_deskripsi');
             $table->string('foto');
+            $table->string('status');
             $table->timestamps();
         });
     }
