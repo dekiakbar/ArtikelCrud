@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Tag;
 use App\Kategori;
-// use App\Http\Requests\Tag;
+use App\Http\Requests\tagReq;
 
 class TagController extends Controller
 {
@@ -17,7 +17,7 @@ class TagController extends Controller
      */
     public function index(Request $request)
     {
-       $data = Tag::join('kategori','tag.kategori_id','=','kategori.id')
+        $data = Tag::join('kategori','tag.kategori_id','=','kategori.id')
                     ->select('*','tag.slug as slug','kategori.slug as kategori.slug')
                     ->paginate(10);
         $kategoris = Kategori::all();
@@ -41,7 +41,7 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(tagReq $request)
     {
         $data = Tag::create($request->all());
 
@@ -76,7 +76,7 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(tagReq $request, $id)
     {
         $ubah = Tag::where('slug',$id)->firstOrFail();
         $ubah->nama_tag = $request->input('nama_tag');
@@ -113,5 +113,17 @@ class TagController extends Controller
         } 
 
         return redirect('tag');       
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->get('cari');
+        $data = Tag::join('kategori','tag.kategori_id','=','kategori.id')
+                    ->select('*','tag.slug as slug','kategori.slug as kategori.slug')
+                    ->where('nama_tag','LIKE','%'.$cari.'%')
+                    ->orWhere('tag.slug','LIKE','%'.$cari.'%')
+                    ->orWhere('kategori.slug','LIKE','%'.$cari.'%')
+                    ->paginate(10);
+        return view('admin.tag.Itag',compact('data'))->with('no',($request->input('page',1)-1)*10);
     }
 }

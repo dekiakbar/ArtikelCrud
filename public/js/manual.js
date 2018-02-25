@@ -46,10 +46,6 @@ $('input:file', '.ui.action.input')
     $('input:text', $(e.target).parent()).val(Nfile);
 });
 
-//function URL hapus
-function url(){
-
-}
 //js konfirmasi delet kategori
 function hapus(){
   var token = $('#hapus').data('token');

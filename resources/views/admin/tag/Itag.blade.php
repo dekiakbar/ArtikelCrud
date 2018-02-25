@@ -61,10 +61,10 @@
 						Tag
 					</h4>
 
-					<form class="ui right aligned category search">
+					<form class="ui right aligned category search" method="post" action="{{ route('tag.cari') }}">
 						{{ csrf_field() }}
 						<div class="ui icon input">
-							<input class="prompt" placeholder="Cari Tag" type="text">
+							<input name="cari" class="prompt" placeholder="Cari Tag" type="text">
 							<i class="search icon"></i>
 						</div>
 						<div class="results"></div>

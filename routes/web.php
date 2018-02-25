@@ -19,9 +19,10 @@ Route::get('/', function () {
 Route::resource('/kategori','KategoriController',[
     'except' => 'show'
 ]);
-Route::get('/kategori','KategoriController@cari')->name('kategori.cari');
+Route::post('/kategori/cari','KategoriController@cari')->name('kategori.cari');
 
 //Routing tag
 Route::resource('/tag','TagController',[
 	'except' => 'show'
 ]);
+Route::post('/tag/cari','TagController@cari')->name('tag.cari');

@@ -12,6 +12,21 @@
 						  <div class="active section">Input Tag</div>
 					</div>
 		  		</div>
+
+		  		@if($errors->any())
+		  			<div class="ui warning message">
+						<i class="close icon"></i>
+						<div class="header">
+							Notifikasi Form !!
+						</div>
+						<ul class="list">
+							@foreach($errors->all() as $error)	
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+		  		@endif
+		  		
 			    <div class="ui segment stacked raised violet">
 			    	<form class="ui form" method="post" action="{{ url('tag') }}">
 			    		{{ csrf_field() }}

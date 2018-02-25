@@ -61,7 +61,8 @@
 						Kategori
 					</h4>
 
-					<form class="ui right aligned category search" method="get" action="{{ route('kategori.cari','') }}">
+					<form class="ui right aligned category search" method="post" action="{{ route('kategori.cari') }}">
+						{{ csrf_field() }}
 						<div class="ui icon input">
 							<input name="cari" class="prompt" placeholder="Cari Kategori" type="text">
 							<i class="search icon"></i>
