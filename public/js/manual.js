@@ -1,7 +1,7 @@
 //function tampil slug
 function buatSlug(){
-    var judul = $('#judul').val();
-    $('#slug').val(slug(judul));
+    var data = $('#dataSlug').val();
+    $('#slug').val(slug(data));
 }
 
 //deopdown pada menu semantic
@@ -26,8 +26,8 @@ function tampil(){
 }
 
 //function slug
-function slug(judul){
-  return judul.toString().toLowerCase()
+function slug(data){
+  return data.toString().toLowerCase()
     .replace(/\s+/g, '-')           
     .replace(/[^\w\-]+/g, '')      
     .replace(/\-\-+/g, '-')        

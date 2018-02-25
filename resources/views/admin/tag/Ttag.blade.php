@@ -13,21 +13,28 @@
 					</div>
 		  		</div>
 			    <div class="ui segment stacked raised violet">
-			    	<form class="ui form" method="post" action="">
+			    	<form class="ui form" method="post" action="{{ url('tag') }}">
 			    		{{ csrf_field() }}
 						<h4 class="ui dividing header">Tambah Tag</h4>
 						
-						<div class="two field">
-							<div class="two fields">
-								<div class="field">
-									<label>Judul</label>
-								  	<input name="judul" id="nama_tag" placeholder="Nama Tag" type="text" onkeyup="buatSlug()">
-								</div>
+						<div class="three fields">
+							<div class="field">
+								<label>Tag</label>
+							  	<input name="nama_tag" id="dataSlug" placeholder="Nama Tag" type="text" onkeyup="buatSlug()">
+							</div>
 
-								<div class="field">
-									<label>Slug</label>
-								  	<input name="slug" id="slug" placeholder="Slug " type="text">
-								</div>
+							<div class="field">
+								<label>Slug</label>
+							  	<input name="slug" id="slug" placeholder="Slug Tag" type="text">
+							</div>
+
+							<div class="field">
+								<label>Kategori</label>
+							  	<select class="ui fluid dropdown" name="kategori_id">
+							  		@foreach($kategoris as $kategori)
+						        		<option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+									@endforeach
+								</select>
 							</div>
 						</div>
 

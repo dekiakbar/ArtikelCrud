@@ -75,40 +75,50 @@
 					    		<th>No</th>
 						    	<th>Kategori</th>
 						    	<th>Slug</th>
+						    	<th>Dibuat</th>
+						    	<th>Diubah</th>
 						    	<th>Aksi</th>
 					  		</tr>
 						</thead>
 						<tbody>
-							@foreach($data as $kategori)
-						 	<tr>
-						 		<td>{{ ++$no }}</td>
-						    	<td>{{ $kategori->nama_kategori }}</td>
-						    	<td>{{ $kategori->slug }}</td>
-						    	<td class="center aligned">
-						    		<a href="/kategori/{{ $kategori->slug }}/edit" class="ui mini animated fade button inverted blue">
-						    			<div class="hidden content">
-											<i class="edit icon"></i>
-										</div>
-										<div class="visible content">
-											Edit    
-										</div>
-						    		</a>
-						    		<a onclick="konfirHapus()" id="hapus" data-slug="{{ $kategori->slug }}" 
-						    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
-						    			<div class="hidden content">
-											<i class="delete icon"></i>
-										</div>
-										<div class="visible content">
-											Hapus    
-										</div>
-						    		</a>
-						    	</td>
-							</tr>
-							@endforeach
+							@if($data->isNotEmpty())
+								@foreach($data as $kategori)
+								 	<tr>
+								 		<td>{{ ++$no }}</td>
+								    	<td>{{ $kategori->nama_kategori }}</td>
+								    	<td>{{ $kategori->slug }}</td>
+								    	<td>{{ $kategori->created_at->format('H:i:s j-M-Y') }}</td>
+								    	<td>{{ $kategori->updated_at->format('H:i:s j-M-Y') }}</td>
+								    	<td class="center aligned">
+								    		<a href="/kategori/{{ $kategori->slug }}/edit" class="ui mini animated fade button inverted blue">
+								    			<div class="hidden content">
+													<i class="edit icon"></i>
+												</div>
+												<div class="visible content">
+													Edit    
+												</div>
+								    		</a>
+								    		<a onclick="konfirHapus()" id="hapus" data-slug="{{ $kategori->slug }}" 
+								    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
+								    			<div class="hidden content">
+													<i class="delete icon"></i>
+												</div>
+												<div class="visible content">
+													Hapus    
+												</div>
+								    		</a>
+								    	</td>
+									</tr>
+								@endforeach
+							@else
+								<tr class="center aligned">
+									<th colspan="4">Tidak Ada Data Kategori</th>
+								</tr>
+							@endif		
 						</tbody>
 					</table>
 
-					<div class="ui center aligned">
+					<div class="ui centered">
 						{{ $data->appends(\Request::except('page'))->links('pagination.semantic-ui') }}
 					</div>
 

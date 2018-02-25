@@ -20,6 +20,10 @@ class Tag extends Migration
             $table->string('slug');
             $table->timestamps();
         });
+
+        Schema::table('tag', function (Blueprint $t){
+            $t->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

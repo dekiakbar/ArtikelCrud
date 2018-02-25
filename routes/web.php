@@ -20,3 +20,8 @@ Route::resource('/kategori','KategoriController',[
     'except' => 'show'
 ]);
 Route::get('/kategori','KategoriController@cari')->name('kategori.cari');
+
+//Routing tag
+Route::resource('/tag','TagController',[
+	'except' => 'show'
+]);

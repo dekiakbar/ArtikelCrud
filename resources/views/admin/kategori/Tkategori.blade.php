@@ -37,7 +37,7 @@
 							<div class="two fields">
 								<div class="field">
 									<label>Judul</label>
-								  	<input name="nama_kategori" id="judul" placeholder="Nama Kategori" type="text" onkeyup="buatSlug()">
+								  	<input name="nama_kategori" id="dataSlug" placeholder="Nama Kategori" type="text" onkeyup="buatSlug()">
 								</div>
 
 								<div class="field">
