@@ -5,6 +5,7 @@
 	<div class="ui container">
 		<div class="ui one column stackable grid">
 		  	<div class="ten column">
+
 		  		<div class="ui segment">
 		  			<div class="ui tiny breadcrumb">
 						  <a class="section">Dashboard</a>
@@ -12,6 +13,21 @@
 						  <div class="active section">Input Kategori</div>
 					</div>
 		  		</div>
+
+		  		@if($errors->any())
+		  			<div class="ui warning message">
+						<i class="close icon"></i>
+						<div class="header">
+							Notifikasi Form !!
+						</div>
+						<ul class="list">
+							@foreach($errors->all() as $error)	
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+		  		@endif
+
 			    <div class="ui segment stacked raised violet">
 			    	<form class="ui form" method="post" action="{{ url('kategori') }}">
 			    		{{ csrf_field() }}

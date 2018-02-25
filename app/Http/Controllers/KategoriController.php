@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Kategori;
+use App\Http\Requests\kategoriReq;
 
 class KategoriController extends Controller
 {
@@ -35,21 +36,18 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(kategoriReq $request)
     {
         $data = Kategori::create($request->all());
-        return redirect('/kategori');
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        if ($data) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data kategori berhasil disimpan');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data kategori gagal disimpan');
+        }
+        return redirect('/kategori');
     }
 
     /**
@@ -71,12 +69,20 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(kategoriReq $request, $id)
     {
         $update = Kategori::where('slug',$id)->firstOrFail();
         $update->nama_kategori  = $request->input('nama_kategori');
         $update->slug           = $request->input('slug');
-        $update->save();
+        
+        if ($update->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data kategori berhasil disimpan');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data kategori gagal disimpan');
+        }
+
         return redirect('kategori');
     }
 
@@ -91,5 +97,11 @@ class KategoriController extends Controller
         $hapus = Kategori::where('slug',$id)->firstOrFail();
         $hapus->delete();
         return redirect ('/kategori');
+    }
+
+    public function cari(Request $request){
+        $cari = $request->get('cari');
+        $data = Kategori::where('nama_kategori','LIKE','%'.$cari.'%')->orWhere('slug','LIKE','%'.$cari.'%')->paginate(10);
+        return view('admin.kategori.Ikategori',compact('data'))->with('no',($request->input('page',1)-1)*10);
     }
 }

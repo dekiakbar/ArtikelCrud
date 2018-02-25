@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('judul','Tambah Kategori')
+@section('judul','Edit Kategori')
 
 @section('isi')
 	<div class="ui container">
@@ -9,14 +9,14 @@
 		  			<div class="ui tiny breadcrumb">
 						  <a class="section">Dashboard</a>
 						  <span class="divider">/</span>
-						  <div class="active section">Input Kategori</div>
+						  <div class="active section">Edit Kategori</div>
 					</div>
 		  		</div>
 			    <div class="ui segment stacked raised violet">
 			    	<form class="ui form" method="post" action="{{ url('kategori/'.$data->slug) }}">
 			    		{{ csrf_field() }}
 			    		<input type="hidden" name="_method" value="PATCH">
-						<h4 class="ui dividing header">Tambah Kategori</h4>
+						<h4 class="ui dividing header">Edit Kategori</h4>
 						
 						<div class="two field">
 							<div class="two fields">

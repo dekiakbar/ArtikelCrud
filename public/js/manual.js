@@ -46,11 +46,11 @@ $('input:file', '.ui.action.input')
     $('input:text', $(e.target).parent()).val(Nfile);
 });
 
-//js konfirmasi delet
+//js konfirmasi delet kategori
 function konfirHapus(){
   var slug = $('#hapus').data('slug');
   var token = $('#hapus').data('token');
-  $('.ui.basic.modal')
+  $('.ui.small.modal')
   .modal({
     onApprove: function (e) {
       if (e.hasClass('ya')) {
@@ -67,7 +67,14 @@ function konfirHapus(){
             }
           })
       }
-    }
+    },
+    blurring: true,
+    transition: 'fade in'
   })
   .modal('show');
 }
+
+//js klose nitifikasi
+$(".close.icon").click(function(){
+  $(this).parent().hide();
+});

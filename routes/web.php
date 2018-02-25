@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('admin.artikel.Dartikel');
 });
 
-Route::Resource('/kategori','KategoriController');
+//Routing kategori
+Route::resource('/kategori','KategoriController',[
+    'except' => 'show'
+]);
+Route::get('/kategori','KategoriController@cari')->name('kategori.cari');

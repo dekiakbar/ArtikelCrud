@@ -3,16 +3,16 @@
 
 @section('isi')
 
-	<div class="ui basic modal">
+	<div class="ui small modal">
 		<div class="ui icon header">
-			<i class="archive icon"></i>
+			<i class="trash icon"></i>
 			Hapus Data Kategori
 		</div>
 		<div class="content right floated">
 			<p>Data kategori yang telah dihapus tidak bisa dikembalikan, Anda yakin ingin menghapus kategori ini?</p>
 		</div>
 		<div class="actions">
-			<div class="ui red basic cancel inverted button tidak">
+			<div class="ui red inverted cancel inverted button tidak">
 				<i class="remove icon"></i>
 				Tidak
 			</div>
@@ -35,16 +35,35 @@
 					</div>
 		  		</div>
 
+		  		@if(session()->has('status'))
+		  			@if(session('status') == 'Sukses')
+		  				<div class="ui positive message">
+						  <i class="close icon"></i>
+						  <div class="header">
+						    {{session('status')}}
+						  </div>
+						  <p>{{session('pesan')}}</p>
+						</div>
+		  			@else
+		  				<div class="ui negative message">
+						  <i class="close icon"></i>
+						  <div class="header">
+						    {{session('status')}}
+						  </div>
+						  {{session('pesan')}}
+						</div>
+		  			@endif
+		  		@endif
+
 				<div class="ui segment raised">
 					<h4 class="ui horizontal divider header">
 						<i class="list icon"></i>
 						Kategori
 					</h4>
 
-					<form class="ui right aligned category search">
-						{{ csrf_field() }}
+					<form class="ui right aligned category search" method="get" action="{{ route('kategori.cari','') }}">
 						<div class="ui icon input">
-							<input class="prompt" placeholder="Cari Kategori" type="text">
+							<input name="cari" class="prompt" placeholder="Cari Kategori" type="text">
 							<i class="search icon"></i>
 						</div>
 						<div class="results"></div>
