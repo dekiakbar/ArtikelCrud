@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('admin.auth.login');
+    return view('web.master');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
+	// Registrasi Admin
+	Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+	Route::post('register', 'Auth\RegisterController@register');
+
 	//Routing kategori
 	Route::resource('/kategori','KategoriController',[
 	    'except' => 'show'
@@ -33,10 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registrasi
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
 
 // Lupa password
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

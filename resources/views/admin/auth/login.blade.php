@@ -4,19 +4,19 @@
 @section('isi')
   <div class="ui middle aligned center aligned grid">
     <div class="column">
-      <h2 class="ui teal image header">
-        <div class="content">
-          Login Admin
-        </div>
-      </h2>
-      
       <form class="ui large form" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
-        <div class="ui stacked segment">
+        <div class="ui stacked segment teal">
           
+          <h2 class="ui teal image header">
+            <div class="content">
+              Login Admin
+            </div>
+          </h2>
+          <div class="ui divider"></div>
           <div class="field">
             <div class="ui left icon input">
-              <i class="user icon"></i>
+              <i class="mail icon"></i>
               <input name="email" placeholder="E-mail" type="text" value="{{ old('email') }}">
             </div>
           </div>
@@ -28,7 +28,7 @@
             </div>
           </div>
 
-          <button class="ui fluid large teal submit button">Login</button>
+          <button class="ui fluid inverted large blue submit button">Login</button>
         
         </div>
 
