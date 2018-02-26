@@ -93,7 +93,7 @@
 						<div class="one field">
 							<div class="field">
 								<label>Artikel</label>
-								<textarea class=""></textarea>
+								<textarea name="artikel"></textarea>
 							</div>
 						</div>
 

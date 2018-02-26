@@ -12,9 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('web.master');
+    return view('admin.artikel.Tartikel');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+|--------------------------------------------------------------------------
+| Route Admin login dan CRUD
+|--------------------------------------------------------------------------
+|
+*/
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
 	// Registrasi Admin
 	Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -33,6 +41,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
 	Route::post('/tag/cari','TagController@cari')->name('tag.cari');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Override Route Autentifikasi User
+|--------------------------------------------------------------------------
+|
+*/
 //Route Login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -44,4 +58,12 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+|--------------------------------------------------------------------------
+| Override Route Filemanager
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('media',function(){
+	return abort(404);
+});

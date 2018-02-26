@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Artikel;
+use App\Kategori;
+use App\Tag;
+
 class ArtikelController extends Controller
 {
     /**
@@ -13,7 +17,8 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        //
+
+
     }
 
     /**
@@ -23,7 +28,9 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::join('kategori','tag.kategori_id','=','kategori.id')
+                    ->select('*','tag.slug as slug','kategori.slug as kategori_slug')
+                    ->get();
     }
 
     /**

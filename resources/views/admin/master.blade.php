@@ -100,6 +100,20 @@
 	</footer>
 
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+	<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+	<script type="text/javascript">
+		var route_prefix = "{{ url(config('lfm.url_prefix', config('lfm.prefix'))) }}";
+	</script>
+	<script type="text/javascript">
+		$('textarea[name=artikel]').ckeditor({
+    		height: 600,
+    		filebrowserImageBrowseUrl: route_prefix + '?type=Images',
+    		filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
+    		filebrowserBrowseUrl: route_prefix + '?type=Files',
+    		filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
+		});
+	</script>
 	<script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
 </body>
 </html>
