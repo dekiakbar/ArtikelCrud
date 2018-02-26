@@ -70,32 +70,33 @@
 						<div class="sub header">Daftar Artikel Baru</div>
 					</div>
 				</h2>
+
 				<div class="ui divider"></div>
+				
 				<div class="ui relaxed divided list">
-				  <div class="item">
-				    <i class="large middle aligned file alternate outline icon"></i>
-				    <div class="content">
-				      <a class="header">Install Ubuntu</a>
-				      <div class="description">10 Menit Yang Lalu</div>
-				    </div>
-				  </div>
+					<div class="item">
+					  <i class="large middle aligned file alternate outline icon"></i>
+					  <div class="content">
+					    <a class="header">Install Ubuntu</a>
+					    <div class="description">10 Menit Yang Lalu</div>
+					  </div>
+					</div>
 
-				  <div class="item">
-				    <i class="large middle aligned file alternate outline icon"></i>
-				    <div class="content">
-				      <a class="header">Dasar Arduino</a>
-				      <div class="description">10 Menit Yang Lalu</div>
-				    </div>
-				  </div>
+					<div class="item">
+					  <i class="large middle aligned file alternate outline icon"></i>
+					  <div class="content">
+					    <a class="header">Dasar Arduino</a>
+					    <div class="description">10 Menit Yang Lalu</div>
+					  </div>
+					</div>
 
-				  <div class="item">
-				    <i class="large middle aligned file alternate outline icon"></i>
-				    <div class="content">
-				      <a class="header">Belajar Laravel</a>
-				      <div class="description">10 Menit Yang Lalu</div>
-				    </div>
-				  </div>
-
+					<div class="item">
+					  <i class="large middle aligned file alternate outline icon"></i>
+					  <div class="content">
+					    <a class="header">Belajar Laravel</a>
+					    <div class="description">10 Menit Yang Lalu</div>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
