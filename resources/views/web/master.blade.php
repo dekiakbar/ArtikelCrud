@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<div class="ui secondary pointing menu teal">
+	<div class="ui secondary pointing menu blue">
 		<div class="header item">
     		Artikel Laravel
 		</div>
@@ -27,35 +27,75 @@
 
 	<div class="ui two column stackable grid">
 		<div class="three wide column">
-			<div class="ui vertical menu">
-				<div class="item">
-					<form class="ui input">
-						{{ csrf_field() }}
-						<input placeholder="Cari" type="text">
-					</form>
-				</div>
-				<div class="item">
-					Kategori
-					<div class="menu">
-						<a class="item"><i class="edit icon"></i> Pemrograman</a>
-				    	<a class="item"><i class="globe icon"></i> Linux</a>
-				    	<a class="item"><i class="settings icon"></i> Aduino</a>
+			
+			<div class="ui segment">
+				<div class="ui vertical menu" style="margin: 0 auto;">
+					<div class="item">
+						<form class="ui input">
+							{{ csrf_field() }}
+							<input placeholder="Cari" type="text">
+						</form>
+					</div>
+					<div class="item">
+						Kategori
+						<div class="menu">
+							<a class="item"><i class="edit icon"></i> Pemrograman</a>
+					    	<a class="item"><i class="globe icon"></i> Linux</a>
+					    	<a class="item"><i class="settings icon"></i> Aduino</a>
+						</div>
+					</div>
+					<div class="ui dropdown item">
+					  Tag
+					  <i class="dropdown icon"></i>
+					  <div class="menu">
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					  </div>
 					</div>
 				</div>
-				<div class="ui dropdown item">
-				  Tag
-				  <i class="dropdown icon"></i>
-				  <div class="menu">
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
-				    <a class="item"><i class="tag icon"></i> Laravel</a>
+			</div>
+
+			<div class="ui segment raised">
+				<h2 class="ui tiny header">
+					<i class="fire icon blue"></i>
+					<div class="content">
+						Artikel Baru
+						<div class="sub header">Daftar Artikel Baru</div>
+					</div>
+				</h2>
+				<div class="ui divider"></div>
+				<div class="ui relaxed divided list">
+				  <div class="item">
+				    <i class="large middle aligned file alternate outline icon"></i>
+				    <div class="content">
+				      <a class="header">Install Ubuntu</a>
+				      <div class="description">10 Menit Yang Lalu</div>
+				    </div>
 				  </div>
+
+				  <div class="item">
+				    <i class="large middle aligned file alternate outline icon"></i>
+				    <div class="content">
+				      <a class="header">Dasar Arduino</a>
+				      <div class="description">10 Menit Yang Lalu</div>
+				    </div>
+				  </div>
+
+				  <div class="item">
+				    <i class="large middle aligned file alternate outline icon"></i>
+				    <div class="content">
+				      <a class="header">Belajar Laravel</a>
+				      <div class="description">10 Menit Yang Lalu</div>
+				    </div>
+				  </div>
+
 				</div>
 			</div>
 		</div>

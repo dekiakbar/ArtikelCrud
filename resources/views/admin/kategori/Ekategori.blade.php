@@ -36,7 +36,7 @@
 							<div class="field">
 								<button class="ui animated fade button inverted blue">
 									<div class="hidden content">
-										<i class="file icon"></i>
+										<i class="save icon"></i>
 									</div>
 									<div class="visible content">
 										Perbaharui    

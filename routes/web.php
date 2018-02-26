@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
 	Route::post('/tag/cari','TagController@cari')->name('tag.cari');
 });
 
-
+//Route Login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
