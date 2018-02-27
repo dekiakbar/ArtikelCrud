@@ -32,7 +32,7 @@ class ArtikelController extends Controller
     public function create()
     {
         $kategoris = Kategori::all();
-        return view('admin.artikel.Tartikel',compact('tags','kategoris'));
+        return view('admin.artikel.Tartikel',compact('kategoris'));
     }
 
     /**
@@ -88,7 +88,7 @@ class ArtikelController extends Controller
     public function show($slug)
     {
         $artikel = Artikel::with('kategori')
-                    ->where('slug',$slug)
+                    ->where('artikel.slug',$slug)
                     ->firstOrFail();
         $tags = Tag::all();
 
@@ -101,11 +101,19 @@ class ArtikelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
-    }
+        $artikel = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
+                    ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
+                    ->where('artikel.slug',$slug)
+                    ->firstOrFail();
+        $kategoris = Kategori::all();
+        $tags = Tag::all();
+        $tagArtikel = explode(',',$artikel->tag_id);
 
+        return view('admin.artikel.Eartikel',compact('artikel','kategoris','tagArtikel','tags'));
+
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -113,9 +121,45 @@ class ArtikelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $tag= implode(",", $request->input('tag'));
+
+        $dataFoto = Artikel::where('slug',$slug)
+                    ->select('foto')
+                    ->firstOrFail();
+
+        if ($request->input('banding') != $dataFoto->foto) {
+            $foto = $request->file('foto');
+            $nama = time().'.'.$foto->getClientOriginalExtension();
+            $lokasi = public_path('/storage/foto');
+            $statusUpload=$foto->move($lokasi, $nama);
+            unlink(public_path('storage/foto'.$dataFoto->foto));
+        }else{
+            $nama=$request->input('banding');
+        }
+
+        $update = Artikel::where('slug',$slug)->firstOrFail();
+        $update->judul = $request->input('judul');
+        $update->kutipan = $request->input('kutipan');
+        $update->slug = $request->input('slug');
+        $update->kategori_id = $request->input('kategori');
+        $update->tag_id = $tag;
+        $update->isi = $request->input('artikel');
+        $update->meta_keyword = $request->input('meta_keyword');
+        $update->meta_deskripsi = $request->input('meta_deskripsi');
+        $update->foto = $nama;
+        $update->status = $request->input('status');
+
+        if ($update->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Artikel berhasil Diubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Artikel gagal diubah');
+        }
+
+        return redirect('admin/artikel');
     }
 
     /**

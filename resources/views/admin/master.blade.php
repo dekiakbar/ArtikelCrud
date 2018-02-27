@@ -19,24 +19,24 @@
 			<span class="text">Artikel</span>
 			<i class="dropdown icon"></i>
 			<div class="menu">
-			    <a href="" class="item"><i class="icon plus"></i>Tambah Artikel</a>
-			    <a href="" class="item"><i class="icon list"></i>Daftar Artikel</a>
+			    <a href="{{ url('admin/artikel/create') }}" class="item"><i class="icon plus"></i>Tambah Artikel</a>
+			    <a href="{{ url('admin/artikel/') }}" class="item"><i class="icon list"></i>Daftar Artikel</a>
 		  	</div>
 		</div>
 		<div class="ui pointing dropdown link item">
 			<span class="text">Kategori</span>
 			<i class="dropdown icon"></i>
 			<div class="menu">
-			    <a href="/admin/kategori/create" class="item"><i class="icon plus"></i>Tambah Kategori</a>
-			    <a href="/admin/kategori" class="item"><i class="icon list"></i>Daftar Kategori</a>
+			    <a href="{{ url('admin/kategori/create') }}" class="item"><i class="icon plus"></i>Tambah Kategori</a>
+			    <a href="{{ url('admin/kategori') }}" class="item"><i class="icon list"></i>Daftar Kategori</a>
 		  	</div>
 		</div>
 		<div class="ui pointing dropdown link item">
 			<span class="text">Tag</span>
 			<i class="dropdown icon"></i>
 			<div class="menu">
-			    <a href="/admin/tag/create" class="item"><i class="icon plus"></i>Tambah Tag</a>
-			    <a href="/admin/tag" class="item"><i class="icon list"></i>Daftar Tag</a>
+			    <a href="{{ url('admin/tag/create') }}" class="item"><i class="icon plus"></i>Tambah Tag</a>
+			    <a href="{{ url('admin/tag') }}" class="item"><i class="icon list"></i>Daftar Tag</a>
 		  	</div>
 		</div>
 		<div class="right menu">

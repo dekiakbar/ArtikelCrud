@@ -16,6 +16,6 @@ class Kategori extends Model
 
     public function artikel()
     {
-    	return $this->belongsTo('App\Artikel','kategori_id');
+    	return $this->hasMany('App\Artikel','kategori_id');
     }
 }

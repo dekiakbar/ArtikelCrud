@@ -61,7 +61,7 @@
 												Lihat    
 											</div>
 						    			</a>
-						    			<a href="" class="ui mini animated fade button inverted violet">
+						    			<a href="{{ url('admin/artikel',$artikel->slug.'/edit') }}" class="ui mini animated fade button inverted violet">
 						    				<div class="hidden content">
 												<i class="edit icon"></i>
 											</div>

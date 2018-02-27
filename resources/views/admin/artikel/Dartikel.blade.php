@@ -14,57 +14,44 @@
 		  		</div>
 
 				<div class="ui segment raised">
-					<h3 class="ui dividing header" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
+					<h2 class="ui dividing header" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 						{{ $artikel->judul }}
-					</h3>
+					</h2>
 					<div class="ui two column stackable grid">
 						<div class="twelve wide column">
 							<div class="six fields">
 								
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-									<label class="ui header">Kategori : </label>
-									<label class="sub header">{{ $artikel->kategori->first()->nama_kategori }}</label>
+									<h5 class="ui header">Kategori : 
+									{{ $artikel->kategori->nama_kategori }}
+									</h5>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-									<label class="ui header">Kutipan : </label>
-									<label class="sub header">{{ $artikel->kutipan }}</label>
-								</div>
-								<div class="ui divider"></div>
-
-								{{-- <div class="field">
-									<label class="ui header">Tag : </label>
-									<label class="sub header"> 
-										<a class="ui mini blue tag label">Pemrograman</a>
-										<a class="ui mini blue tag label">Laravel</a>
-										<a class="ui mini blue tag label">Framework</a>
-									</label>
-								</div>
-								<div class="ui divider"></div> --}}
-
-								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-									<label class="ui header">Slug : </label>
-									<label class="sub header">{{ $artikel->slug }}</label>
+									<h5 class="ui header">Kutipan : {{ $artikel->kutipan }}</h5>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-									<label class="ui header">Meta Deskripsi : </label>
-									<label class="sub header">{{ $artikel->meta_deskripsi }}</label>
+									<h5 class="ui header">Slug : {{ $artikel->slug }}</h5>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-									<label class="ui header">Meta Keyword : </label>
-									<label class="sub header">{{ $artikel->meta_keyword }}</label>
+									<h5 class="ui header">Meta Deskripsi : {{ $artikel->meta_deskripsi }}</h5>
+								</div>
+								<div class="ui divider"></div>
+
+								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
+									<h5 class="ui header">Meta Keyword : {{ $artikel->meta_keyword }}</h5>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Artikel</label>
 									<div class="ui divider"></div>
-									
+
 									{!! $artikel->isi !!}
 									
 								</div>
