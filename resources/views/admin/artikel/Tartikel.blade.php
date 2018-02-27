@@ -13,7 +13,7 @@
 					</div>
 		  		</div>
 			    <div class="ui segment stacked raised blue">
-			    	<form class="ui form" method="post" action="">
+			    	<form enctype="multipart/form-data" class="ui form" method="post" action="{{ url('admin/artikel') }}">
 			    		{{ csrf_field() }}
 						<h4 class="ui dividing header">Tambah Artikel</h4>
 						
@@ -21,7 +21,7 @@
 							<div class="two fields">
 								<div class="field">
 									<label>Judul</label>
-								  	<input name="judul" id="judul" placeholder="Judul Artikel" type="text" onkeyup="buatSlug()">
+								  	<input name="judul" id="dataSlug" placeholder="Judul Artikel" type="text" onkeyup="buatSlug()">
 								</div>
 
 								<div class="field">
@@ -70,7 +70,7 @@
 								<label>Foto Artikel</label>
 								<div class="ui action input">
 									<input type="text" placeholder="" readonly>
-									<input type="file">
+									<input type="file" name="foto">
 									<div class="ui icon button">
 									  <i class="attach icon"></i>
 									</div>

@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artikel extends Model
 {
-    protected $fillale = ['judul', 'kutipan', 'slug', 'kategori_id', 'isi', 'meta_keyword', 'meta_deskripsi', 'foto', 'status'];
+    protected $fillable = [
+    	'judul', 'kutipan', 'slug', 'kategori_id','tag_id', 'isi', 'meta_keyword', 'meta_deskripsi', 'foto', 'status'
+    ];
 
-    protected $table = 'ArtikelCrud';
+    protected $table = 'artikel';
+
+    public function kategori(){
+    	$this->hasMany('App\kategori','id');
+    }
 }

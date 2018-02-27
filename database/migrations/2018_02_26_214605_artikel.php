@@ -16,13 +16,14 @@ class Artikel extends Migration
         Schema::create('artikel', function (Blueprint $table) {
             $table->increments('id');
             $table->string('judul');
-            $table->string('kutipan');
+            $table->text('kutipan');
             $table->string('slug')->unique();
             $table->integer('kategori_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
-            $table->string('isi');
-            $table->string('meta_keyword');
-            $table->string('meta_deskripsi');
+            // $table->integer('tag_id')->unsigned();
+            $table->string('tag_id');
+            $table->text('isi');
+            $table->text('meta_keyword');
+            $table->text('meta_deskripsi');
             $table->string('foto');
             $table->string('status');
             $table->timestamps();
@@ -30,7 +31,7 @@ class Artikel extends Migration
 
         Schema::table('artikel',function (Blueprint $t){
             $t->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
-            $t->foreign('tag_id')->references('id')->on('tag')->onDelete('cascade')->onUpdate('cascade');
+            // $t->foreign('tag_id')->references('id')->on('tag')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

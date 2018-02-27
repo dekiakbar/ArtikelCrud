@@ -15,7 +15,7 @@
 
 				<div class="ui segment raised">
 					<h3 class="ui dividing header" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-						Membuat Artikel Dengan laravel 5
+						{{ $artikel->judul }}
 					</h3>
 					<div class="ui two column stackable grid">
 						<div class="twelve wide column">
@@ -23,18 +23,13 @@
 								
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Kategori : </label>
-									<label class="sub header">Pemrograman</label>
+									<label class="sub header">{{ $artikel->nama_kategori }}</label>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Kutipan : </label>
-									<label class="sub header">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
+									<label class="sub header">{{ $artikel->kutipan }}</label>
 								</div>
 								<div class="ui divider"></div>
 
@@ -50,52 +45,25 @@
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Slug : </label>
-									<label class="sub header">membuat-artikel-laravel</label>
+									<label class="sub header">{{ $artikel->slug }}</label>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Meta Deskripsi : </label>
-									<label class="sub header">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
+									<label class="sub header">{{ $artikel->meta_deskripsi }}</label>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Meta Keyword : </label>
-									<label class="sub header">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
+									<label class="sub header">{{ $artikel->meta_keyword }}</label>
 								</div>
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Artikel : </label>
-									<label class="sub header">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									<label class="sub header">{!! $artikel->isi !!}
 									</label>
 								</div>
 								<div class="ui divider"></div>
@@ -107,26 +75,33 @@
 							<div class="ui link cards">
 								<div class="card">
 								    <div class="image">
-								      <img src="/images/avatar2/large/matthew.png">
+								      <img src="{{ asset('storage/foto') }}/{{ $artikel->foto }}">
 								    </div>
 								    <div class="content">
-								      <div class="meta">
-								       	<span class="left floated">
-								        Dibuat :
-								        <i class="clock icon"></i>
-									    21-12-2018 21:21:21
-								      </span>
-								      <span class="left floated">
-								      	Diubah :
-								        <i class="edit icon"></i>
-									    21-12-2018 21:21:21
-								      </span>
-								      </div>
-								      <div class="description">
-										<a class="ui mini blue tag label">Pemrograman</a>
-										<a class="ui mini blue tag label">Laravel</a>
-										<a class="ui mini blue tag label">Framework</a>
-								      </div>
+								      	<div class="meta">
+								       		<span class="left floated">
+								    			Dibuat :
+								    			<i class="clock icon"></i>
+												{{ $artikel->created_at->format('H:i:s j-M-Y') }}
+								    		</span>
+								    		<span class="left floated">
+								    			Diubah :
+								    			<i class="edit icon"></i>
+												{{ $artikel->updated_at->format('H:i:s j-M-Y') }}
+								    		</span>
+								      	</div>
+								    	<div class="description">
+								    		@php
+								    			$tagArtikel = explode(',', $artikel->tag_id);
+								    		@endphp
+								      		@foreach($tags as $tag)
+								      			@foreach($tagArtikel as $tagAr)
+								      				@if($tag->id == $tagAr)
+														<a class="ui mini blue tag label">{{ $tag->nama_tag }}</a>
+								      				@endif
+								      			@endforeach
+								      		@endforeach
+								    	</div>
 								    </div>
 								</div>
 							</div>
