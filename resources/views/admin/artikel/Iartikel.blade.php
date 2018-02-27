@@ -53,7 +53,7 @@
 						    		</td>
 						    		<td>{{ $artikel->nama_kategori }}</td>
 						    		<td class="center aligned">
-						    			<a href="" class="ui mini animated button inverted blue center">
+						    			<a href="{{ url('admin/artikel',$artikel->slug) }}" class="ui mini animated button inverted blue center">
 						    				<div class="hidden content">
 												<i class="zoom icon"></i>
 											</div>

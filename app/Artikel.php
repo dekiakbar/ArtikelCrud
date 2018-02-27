@@ -13,6 +13,6 @@ class Artikel extends Model
     protected $table = 'artikel';
 
     public function kategori(){
-    	$this->hasMany('App\kategori','id');
+    	return $this->hasMany('App\Kategori','id');
     }
 }

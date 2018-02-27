@@ -23,7 +23,7 @@
 								
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 									<label class="ui header">Kategori : </label>
-									<label class="sub header">{{ $artikel->nama_kategori }}</label>
+									<label class="sub header">{{ $artikel->kategori->first()->nama_kategori }}</label>
 								</div>
 								<div class="ui divider"></div>
 
@@ -62,9 +62,11 @@
 								<div class="ui divider"></div>
 
 								<div class="field" style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
-									<label class="ui header">Artikel : </label>
-									<label class="sub header">{!! $artikel->isi !!}
-									</label>
+									<label class="ui header">Artikel</label>
+									<div class="ui divider"></div>
+									
+									{!! $artikel->isi !!}
+									
 								</div>
 								<div class="ui divider"></div>
 

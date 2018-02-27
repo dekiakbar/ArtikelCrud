@@ -11,6 +11,11 @@ class Kategori extends Model
 
     public function tag()
     {
-    	$this->belongsTo('App\Tag','kategori_id');
+    	return $this->belongsTo('App\Tag','kategori_id');
+    }
+
+    public function artikel()
+    {
+    	return $this->belongsTo('App\Artikel','kategori_id');
     }
 }

@@ -85,10 +85,10 @@ class ArtikelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $artikel = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
-                    ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
+        $artikel = Artikel::with('kategori')
+                    ->where('slug',$slug)
                     ->firstOrFail();
         $tags = Tag::all();
 
