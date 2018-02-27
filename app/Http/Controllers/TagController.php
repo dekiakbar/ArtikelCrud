@@ -110,7 +110,7 @@ class TagController extends Controller
     {
         $hapus = Tag::where('slug',$id)->firstOrFail();
         
-         if ($hapus->delete()) {
+        if ($hapus->delete()) {
             session()->flash('status','Sukses');
             session()->flash('pesan','Data tag berhasil dihapus');
         }else{

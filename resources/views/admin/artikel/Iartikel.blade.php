@@ -14,6 +14,26 @@
 					</div>
 		  		</div>
 
+		  		@if(session()->has('status'))
+		  			@if(session('status') == 'Sukses')
+		  				<div class="ui positive message">
+						  <i class="close icon"></i>
+						  <div class="header">
+						    {{session('status')}}
+						  </div>
+						  <p>{{session('pesan')}}</p>
+						</div>
+		  			@else
+		  				<div class="ui negative message">
+						  <i class="close icon"></i>
+						  <div class="header">
+						    {{session('status')}}
+						  </div>
+						  {{session('pesan')}}
+						</div>
+		  			@endif
+		  		@endif
+
 				<div class="ui segment raised">
 					<h4 class="ui horizontal divider header">
 						<i class="list icon"></i>

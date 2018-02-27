@@ -134,7 +134,7 @@ class ArtikelController extends Controller
             $nama = time().'.'.$foto->getClientOriginalExtension();
             $lokasi = public_path('/storage/foto');
             $statusUpload=$foto->move($lokasi, $nama);
-            unlink(public_path('storage/foto'.$dataFoto->foto));
+            @unlink(public_path('storage/foto/'.$dataFoto->foto));
         }else{
             $nama=$request->input('banding');
         }
@@ -153,7 +153,7 @@ class ArtikelController extends Controller
 
         if ($update->save()) {
             session()->flash('status','Sukses');
-            session()->flash('pesan','Data Artikel berhasil Diubah');
+            session()->flash('pesan','Data Artikel berhasil diubah');
         }else{
             session()->flash('status','Gagal');
             session()->flash('pesan','Data Artikel gagal diubah');
@@ -170,6 +170,16 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Artikel::where('slug',$slug)->firstOrFail();
+
+        if ($hapus->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Artikel berhasil dihapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Artikel gagal dihapus');
+        }
+
+        return redirect('admin/artikel');
     }
 }
