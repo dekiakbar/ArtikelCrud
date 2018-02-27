@@ -2,6 +2,27 @@
 @section('judul','Daftar Artikel')
 
 @section('isi')
+
+	<div class="ui small modal">
+		<div class="ui icon header">
+			<i class="trash icon"></i>
+			Hapus Data Artikel
+		</div>
+		<div class="content right floated">
+			<p>Data artikel yang telah dihapus tidak bisa dikembalikan, Anda yakin ingin menghapus artikel ini?</p>
+		</div>
+		<div class="actions">
+			<div class="ui red inverted cancel inverted button tidak">
+				<i class="remove icon"></i>
+				Tidak
+			</div>
+			<div class="ui green ok inverted button tidak ya">
+				<i class="checkmark icon"></i>
+				Iya
+			</div>
+		</div>
+	</div>
+
 	<div class="ui container">
 		<div class="ui one column stackable grid">
 			<div  class="ten column">
@@ -40,10 +61,10 @@
 						Artikel
 					</h4>
 
-					<form class="ui right aligned category search">
+					<form class="ui right aligned category search" action="{{ route('artikel.cari') }}" method="post">
 						{{ csrf_field() }}
 						<div class="ui icon input">
-							<input class="prompt" placeholder="Cari Artikel" type="text">
+							<input name="cari" class="prompt" placeholder="Cari Artikel" type="text">
 							<i class="search icon"></i>
 						</div>
 						<div class="results"></div>
@@ -89,7 +110,8 @@
 												Edit    
 											</div>
 						    			</a>
-						    			<a href="" class="ui mini animated vertical button inverted red">
+						    			<a onclick="hapus()" id="hapus" data-slug="artikel/{{ $artikel->slug }}" 
+								    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
 						    				<div class="hidden content">
 												<i class="delete icon"></i>
 											</div>

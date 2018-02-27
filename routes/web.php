@@ -40,8 +40,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
 	]);
 	Route::post('/tag/cari','TagController@cari')->name('tag.cari');
 
+	//route artikel
 	Route::resource('/artikel','ArtikelController');
+	Route::post('/artikel/cari','ArtikelController@cari')->name('artikel.cari');
 	
+	//route json kategori
 	Route::get('tag/{kategori_id}', 'TagController@ambilTag');
 
 });

@@ -13,6 +13,6 @@ class Artikel extends Model
     protected $table = 'artikel';
 
     public function kategori(){
-    	return $this->belongsTo('App\Kategori','id');
+    	return $this->belongsTo('App\Kategori','kategori_id');
     }
 }

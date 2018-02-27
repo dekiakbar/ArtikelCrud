@@ -70,12 +70,12 @@ class ArtikelController extends Controller
 
             if ($data && $statusUpload) {
                 session()->flash('status','Sukses');
-                session()->flash('pesan','Data Artikel berhasil disimpan');
+                session()->flash('pesan','Data Artikel berhasil dibuat');
             }else{
                 session()->flash('status','Gagal');
-                session()->flash('pesan','Data Artikel gagal disimpan');
+                session()->flash('pesan','Data Artikel gagal dibuat');
             }
-            return redirect('admin/artikel/create');
+            return redirect('admin/artikel');
         }
     }
 
@@ -171,15 +171,17 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         $hapus = Artikel::where('slug',$slug)->firstOrFail();
+        $hapus->delete();
+    }
 
-        if ($hapus->delete()) {
-            session()->flash('status','Sukses');
-            session()->flash('pesan','Data Artikel berhasil dihapus');
-        }else{
-            session()->flash('status','Gagal');
-            session()->flash('pesan','Data Artikel gagal dihapus');
-        }
+    public function cari(Request $request)
+    {
+        $cari = $request->input('cari');
+        $artikels = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
+                    ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
+                    ->where('judul','LIKE','%'.$cari.'%')
+                    ->paginate(10);
 
-        return redirect('admin/artikel');
+        return view('admin.artikel.Iartikel',compact('artikels'))->with('no',($request->input('page',1)-1)*10);
     }
 }
