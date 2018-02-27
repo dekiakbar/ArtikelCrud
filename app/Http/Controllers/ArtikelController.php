@@ -30,7 +30,9 @@ class ArtikelController extends Controller
     {
         $tags = Tag::join('kategori','tag.kategori_id','=','kategori.id')
                     ->select('*','tag.slug as slug','kategori.slug as kategori_slug')
-                    ->get();
+                    ->groupBy('kategori_id');
+        $kategoris = Kategori::all();
+        return view('admin.artikel.Tartikel',compact('tags','kategoris'));
     }
 
     /**

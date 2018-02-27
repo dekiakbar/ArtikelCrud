@@ -56,6 +56,12 @@ class TagController extends Controller
         return redirect('/tag');
     }
 
+    public function ambilTag($kategori_id)
+    {
+        $tags = Tag::where('kategori_id',$kategori_id)->select('id','nama_tag')->get();
+        return Response()->json($tags);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -79,11 +79,17 @@ $(".close.icon").click(function(){
   $(this).parent().hide();
 });
 
-//CKeditor
-// CKEDITOR.replace('artikel',{
-//   height: 100,
-//   filebrowserImageBrowseUrl: route_prefix + '?type=Images',
-//   filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
-//   filebrowserBrowseUrl: route_prefix + '?type=Files',
-//   filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
-// });
+//handel JSON halaman input artikel kolom tag 
+$('#kategori').on('change', function(){
+    var id = $(this).val();
+    $.getJSON("/admin/tag/" + id , function(data){
+        var tag = $('#tag').empty();
+        $.each(data, function(indek, isi){
+            // var indek = JSON.stringify(indek);
+            // 
+            var isi = JSON.stringify(isi);
+            var option = $('<option value="'+$(this).attr("id")+'">'+$(this).attr("nama_tag")+"</option>");
+            tag.append(option);
+        });
+    });
+});

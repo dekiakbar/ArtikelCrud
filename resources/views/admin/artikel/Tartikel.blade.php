@@ -34,19 +34,19 @@
 					  	<div class="two fields">
 						    <div class="field">
 						      	<label>Kategori</label>
-						      	<select class="ui fluid dropdown" name="kategori">
-						        	<option value="pemrograman">Pemrograman</option>
-						        	<option value="jaringan">Jaringan</option>				      
+						      	<select class="ui fluid dropdown" name="kategori" id="kategori">
+						      		<option selected></option>
+						      		@foreach($kategoris as $kategori)
+						        		<option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>	
+									@endforeach
 								</select>
 						    </div>
 
 						    <div class="field">
 								<label>Tag</label>
 								<div class="field">
-								    <select multiple="" class="ui fluid dropdown" name="tag[]">
-								      	<option value="laravel">Laravel</option>
-									    <option value="php">PHP Native</option>
-									    <option value="yii">Yii</option>
+								    <select multiple="" class="ui fluid dropdown" name="tag[]" id="tag">
+								 		
 								    </select>
 								 </div>
 						    </div>
