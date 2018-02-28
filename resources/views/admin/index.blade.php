@@ -3,6 +3,27 @@
 
 @section('isi')
 	<div class="ui container">
+
+		@if(session()->has('status'))
+		  	@if(session('status') == 'Sukses')
+		  		<div class="ui positive message">
+				  	<i class="close icon"></i>
+				  	<div class="header">
+				    	{{session('status')}}
+				  	</div>
+				  	<p>{{session('pesan')}}</p>
+				</div>
+		  	@else
+		  		<div class="ui negative message">
+				  	<i class="close icon"></i>
+				  	<div class="header">
+				    	{{session('status')}}
+					</div>
+					{{session('pesan')}}
+				</div>
+		  	@endif
+		@endif
+
 		<div class="ui segment">
 			<div class="ui breadcrumb">
 				<a class="section">Dashboard</a>
@@ -25,9 +46,10 @@
             		            </div>
             		        </div>
             		    </div>
-            		    <div class="ui inverted teal tertiary segment center aligned">
-            		        <div>
-            		        </div>
+            		    <div class="ui inverted teal tertiary segment vertical center aligned">
+            		        <h3 class="header icon">
+            		        	<i class="eye big icon"></i>
+            		        </h3>
             		    </div>
             		</div>
 				</div>
@@ -45,8 +67,9 @@
         		            </div>
         		        </div>
         		        <div class="ui inverted purple tertiary segment center aligned">
-        		            <div>
-        		            </div>
+        		             <h3 class="header icon">
+            		        	<i class="file big icon"></i>
+            		        </h3>
         		        </div>
         		    </div>
 				</div>
@@ -64,8 +87,9 @@
         			        </div>
         			    </div>
         			    <div class="ui inverted blue tertiary segment center aligned">
-        			        <div id="">
-        			        </div>
+        			         <h3 class="header icon">
+            		        	<i class="settings big icon"></i>
+            		        </h3>
         			    </div>
         			</div>
 				</div>
@@ -83,8 +107,9 @@
         			        </div>
         			    </div>
         			    <div class="ui inverted yellow tertiary segment center aligned">
-        			        <div id="">
-        			        </div>
+        			         <h3 class="header icon">
+            		        	<i class="tag big icon"></i>
+            		        </h3>
         			    </div>
         			</div>
 				</div>
@@ -97,13 +122,15 @@
 				<div class="ui stacked segment">
 		        	<a class="ui ribbon teal label">Ganti Password</a>
 
-		        	<form class="ui form">
+		        	<form class="ui form" method="post" action="{{ url('/') }}">
+		        		{{ csrf_field() }}
+		        		<input type="hidden" name="adadeh" value="{!!  Auth::id() !!}" readonly>
 		          		<div class="two fields">
 		            		<div class="field">
 		              			<label>Nama</label>
 
 		              			<div class="ui right labeled input">
-		                			<input type="text" placeholder="Nama ">
+		                			<input type="text" name="nama" value="{!! Auth::user()->name !!}" readonly>
 		                			<div class="ui label">
 		                  				<i class="user icon"></i>
 		                			</div>
@@ -114,7 +141,7 @@
 		              			<label>Email</label>
 		              			
 		              			<div class="ui right labeled input">
-		                			<input type="text" placeholder="Email">
+		                			<input type="text" name="email" value=" {!!Auth::user()->email!!} " readonly="">
 		                			<div class="ui label">
 		                  				<i class="envelope icon"></i>
 		                			</div>
@@ -130,7 +157,7 @@
 				                	<label>Kata Sandi Lama</label>
 				                	<div class="one fields">
 				                  		<div class="ui right labeled input">
-				                			<input type="password" placeholder="Kata Sandi Lama">
+				                			<input type="password" name="pasLama" placeholder="Kata Sandi Lama">
 				                			<div class="ui label">
 				                  				<i class="lock icon"></i>
 				                			</div>
@@ -143,7 +170,7 @@
 		                		<div class="eight wide field">
 		                			<label>Kata Sandi Baru</label>
 					              	<div class="ui right labeled input">
-				               			<input type="password" placeholder="Kata Sandi baru">
+				               			<input type="password" name="pasBaru" placeholder="Kata Sandi baru">
 				               			<div class="ui label">
 				               				<i class="lock icon"></i>
 				               			</div>
@@ -153,7 +180,7 @@
 		               			<div class="eight wide field">
 		               				<label>Ulangi Kata Sandi Baru</label>
 					              	<div class="ui right labeled input">
-				               			<input type="password" placeholder="Kata Sandi baru">
+				               			<input type="password" name="pasBaruCek" placeholder="Kata Sandi baru">
 				               			<div class="ui label">
 				               				<i class="lock icon"></i>
 				               			</div>
