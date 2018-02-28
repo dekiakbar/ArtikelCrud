@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'WebController@tampil');
+Route::get('kategori/{kategori}','WebController@kategori');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -40,7 +40,7 @@
 						Kategori
 						<div class="menu">
 							@foreach($kategoris as $kategori)
-								<a href="{{ url('kategori/',$kategori->slug) }}" class="item"><i class="edit icon"></i> {{ $kategori->nama_kategori }}</a>
+								<a href="{{ url('kategori/',$kategori->slug) }}" class="item"><i class="settings icon"></i> {{ $kategori->nama_kategori }}</a>
 							@endforeach
 						</div>
 					</div>
