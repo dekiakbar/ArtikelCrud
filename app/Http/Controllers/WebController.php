@@ -38,7 +38,10 @@ class WebController extends Controller
     	$tags = Tag::all();
     	$kategoris = Kategori::all();
     	$barus = Artikel::latest()->take(3)->get();
-    	$artikels = Artikel::where('tag_id',$slug)->paginate(5);
+    	$artikels = Artikel::join('tag','artikel.tag_id','tag.id')
+                            ->select('*','artikel.slug as slug','tag.slug as tag_slug')
+                            ->where('tag.slug',$slug)
+                            ->paginate(5);
 
     	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
