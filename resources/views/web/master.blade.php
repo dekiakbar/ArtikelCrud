@@ -31,16 +31,16 @@
 			<div class="ui segment">
 				<div class="ui vertical menu" style="margin: 0 auto;">
 					<div class="item">
-						<form class="ui input">
+						<form class="ui input" method="post" action="{{ url('/') }}">
 							{{ csrf_field() }}
-							<input placeholder="Cari" type="text">
+							<input placeholder="cari" type="text" name="cari">
 						</form>
 					</div>
 					<div class="item">
 						Kategori
 						<div class="menu">
 							@foreach($kategoris as $kategori)
-								<a href="{{ url('kategori/',$kategori->slug) }}" class="item"><i class="settings icon"></i> {{ $kategori->nama_kategori }}</a>
+								<a href="{{ url('kategori',$kategori->slug) }}" class="item"><i class="settings icon"></i> {{ $kategori->nama_kategori }}</a>
 							@endforeach
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
 					  	@foreach($tags as $tag)
-					  		<a href="{{ url('kategori/',$tag->slug) }}" class="item"><i class="tag icon"></i>{{ $tag->nama_tag }}</a>
+					  		<a href="{{ url('tag',$tag->slug) }}" class="item"><i class="tag icon"></i>{{ $tag->nama_tag }}</a>
 					    @endforeach
 					  </div>
 					</div>

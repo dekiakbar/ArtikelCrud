@@ -17,6 +17,6 @@ class Artikel extends Model
     }
 
     public function tag(){
-    	return $this->belongsToMany('App\Tag','tag_id');
+    	return $this->belongsTo('App\Tag','tag_id');
     }
 }

@@ -34,13 +34,26 @@ class WebController extends Controller
 
     public function tag(Request $request, $slug)
     {
+        $idTag = Tag::where('slug',$slug)->get();
     	$tags = Tag::all();
     	$kategoris = Kategori::all();
     	$barus = Artikel::latest()->take(3)->get();
-    	$artikels = Artikel::join('tag','artikel.tag_id','tag.id')
-    				->select('*','artikel.slug as slug','tag.slug as tag_slug')
-    				->where('tag.slug',$slug)->paginate(5);
+    	$artikels = Artikel::where('tag_id',$slug)->paginate(5);
 
     	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->input('cari');
+        $tags = Tag::all();
+        $kategoris = Kategori::all();
+        $barus = Artikel::latest()->take(3)->get();
+        $artikels = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id')
+                          ->whereHas('kategori', function($query) use($cari) {$query->where('nama_kategori', 'like', '%'.$cari.'%');})
+                          ->orWhereHas('tag', function($query) use($cari) {$query->where('nama_tag', 'like', '%'.$cari.'%');})
+                          ->orWhere("judul", "LIKE","%$cari%")->orderBy('created_at', 'desc')->paginate(5);
+
+        return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
 }

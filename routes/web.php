@@ -17,8 +17,9 @@
 Route::get('/', 'WebController@tampil');
 Route::get('kategori/{kategori}','WebController@kategori');
 Route::get('tag/{tag}','WebController@tag');
+Route::post('/','WebController@cari');
 
-Route::post('/','HomeController@gantiPas');
+// Route::post('/','HomeController@gantiPas');
 /*
 |--------------------------------------------------------------------------
 | Route Admin login dan CRUD

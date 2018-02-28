@@ -10,7 +10,7 @@ class Tag extends Model
     protected $table = 'tag';
 
     public function kategori(){
-    	$this->hasMany('App\Kategori','id');
+    	return $this->hasMany('App\Kategori','id');
     }
 
     public function artikel()
