@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="ui secondary pointing menu grid computer only blue">
-		<div class="header item">
+		<div class="header item ">
     		Laravel Artikel
   		</div>
 		<div class="ui pointing dropdown link item">
@@ -89,7 +89,7 @@
 	@yield('isi')
 
 	<footer style="margin-top: 10px;">
-		<div class="ui segment center aligned">
+		<div class="ui segment center aligned blue">
 			<p>&copy;{!! date('Y') !!} 
 				<a href="https://dekiakbar.com">Deki Akbar</a> | Made With :
 				<a target="_blank" href="https://Laravel.com">Laravel</a>

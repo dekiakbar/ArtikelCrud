@@ -12,4 +12,9 @@ class Tag extends Model
     public function kategori(){
     	$this->hasMany('App\Kategori','id');
     }
+
+    public function artikel()
+    {
+    	return $this->hasMany('App\Artikel','id');
+    }
 }

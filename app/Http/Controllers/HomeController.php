@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Artikel;
+use App\Tag;
+use App\Kategori;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tags = Tag::all();
+        $kategoris = Kategori::all();
+        $artikels = Artikel::all();
+
+        return view('admin.index',compact('tags','kategoris','artikels'));
     }
 }

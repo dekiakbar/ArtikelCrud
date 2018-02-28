@@ -15,4 +15,8 @@ class Artikel extends Model
     public function kategori(){
     	return $this->belongsTo('App\Kategori','kategori_id');
     }
+
+    public function tag(){
+    	return $this->belongsToMany('App\Tag','tag_id');
+    }
 }
