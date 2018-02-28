@@ -16,6 +16,7 @@ class tagSeeder extends Seeder
     	$pemrograman = [ 'C', 'C++', 'PHP', 'CSS', 'HTML', 'Laravel', 'Yii', 'Code Igniter'];
     	$linux =[ 'Ubuntu', 'Debian', 'Kali Linux', 'Arch Linux', 'Redhat', 'Parrot OS'];
     	$elektronika = [ 'Skema', 'Resistor', 'PCB', 'Transistor', 'Capacitor'];
+        $arduino = ['Arduino Uno','Arduino Mega','Arduino Duemilanov','Arduino Nano','Arduino pro Mini'];
 
     	function slug($data){
     		$hasil = strtolower((str_replace(' ','-',$data)));
@@ -53,7 +54,17 @@ class tagSeeder extends Seeder
 		        	'updated_at' => date("Y-m-d H:i:s"),
 	        		]);
     			}
-    		}
+    		}elseif ($kat->nama_kategori == 'Arduino') {
+                foreach ($arduino as $ar) {
+                    DB::table('tag')->insert([
+                    'nama_tag' => $ar,
+                    'slug' => slug($ar),
+                    'kategori_id' => $kat->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date("Y-m-d H:i:s"),
+                    ]);
+                }
+            }
     	}
         
     }

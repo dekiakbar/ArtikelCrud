@@ -19,7 +19,6 @@ class Artikel extends Migration
             $table->text('kutipan');
             $table->string('slug')->unique();
             $table->integer('kategori_id')->unsigned();
-            // $table->integer('tag_id')->unsigned();
             $table->string('tag_id');
             $table->text('isi');
             $table->text('meta_keyword');
