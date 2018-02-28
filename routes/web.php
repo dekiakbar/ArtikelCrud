@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.artikel.Tartikel');
-});
+Route::get('/', 'WebController@tampil');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -10,6 +10,8 @@
 		  			<div class="ui tiny breadcrumb">
 						  <a class="section">Dashboard</a>
 						  <span class="divider">/</span>
+						  <a href="{{ url('admin/kategori') }}" class="active section">Kategori</a>
+						  <span class="divider">/</span>
 						  <div class="active section">Input Kategori</div>
 					</div>
 		  		</div>

@@ -39,24 +39,18 @@
 					<div class="item">
 						Kategori
 						<div class="menu">
-							<a class="item"><i class="edit icon"></i> Pemrograman</a>
-					    	<a class="item"><i class="globe icon"></i> Linux</a>
-					    	<a class="item"><i class="settings icon"></i> Aduino</a>
+							@foreach($kategoris as $kategori)
+								<a href="{{ url('kategori/',$kategori->slug) }}" class="item"><i class="edit icon"></i> {{ $kategori->nama_kategori }}</a>
+							@endforeach
 						</div>
 					</div>
 					<div class="ui dropdown item">
 					  Tag
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
-					    <a class="item"><i class="tag icon"></i> Laravel</a>
+					  	@foreach($tags as $tag)
+					  		<a href="{{ url('kategori/',$tag->slug) }}" class="item"><i class="tag icon"></i>{{ $tag->nama_tag }}</a>
+					    @endforeach
 					  </div>
 					</div>
 				</div>
@@ -74,29 +68,15 @@
 				<div class="ui divider"></div>
 				
 				<div class="ui relaxed divided list">
-					<div class="item">
-					  <i class="large middle aligned file alternate outline icon"></i>
-					  <div class="content">
-					    <a class="header">Install Ubuntu</a>
-					    <div class="description">10 Menit Yang Lalu</div>
-					  </div>
-					</div>
-
-					<div class="item">
-					  <i class="large middle aligned file alternate outline icon"></i>
-					  <div class="content">
-					    <a class="header">Dasar Arduino</a>
-					    <div class="description">10 Menit Yang Lalu</div>
-					  </div>
-					</div>
-
-					<div class="item">
-					  <i class="large middle aligned file alternate outline icon"></i>
-					  <div class="content">
-					    <a class="header">Belajar Laravel</a>
-					    <div class="description">10 Menit Yang Lalu</div>
-					  </div>
-					</div>
+					@foreach($barus as $baru)
+						<div class="item">
+						  <i class="large middle aligned file alternate outline icon"></i>
+						  <div class="content">
+						    <a href="{{ url('',$baru->slug) }}" class="header">{{ $baru->judul }}</a>
+						    <div class="description">{{ $baru->created_at }}</div>
+						  </div>
+						</div>
+					@endforeach
 				</div>
 			</div>
 
@@ -117,100 +97,8 @@
 			</div>
 		</div>
 
-		<div class="twelve wide column">
-			<div class="ui segment">
-				<h3 class="ui header">
-					<a>Judul JudulJudulJudulJudulJudulJudul</a>
-					<span class="sub header">Di post pada 12:12:12 21-12-2018</span>
-				</h3>
+		@yield('isi')
 
-				<div class="ui divider"></div>
-
-				<img class="ui medium left floated rounded image" src="https://dummyimage.com/1920x1080/000/fff">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-
-				<div class="ui divider"></div>
-				<div class="netadata">
-					<a class="ui tiny teal tag label">Tag</a>
-					<a class="ui tiny teal tag label">Tag</a>
-					<a class="ui tiny teal tag label">Tag</a>
-					<div style="float: right;">
-						<a class="ui tiny label blue">Pemrograman</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="ui segment">
-				<h3 class="ui header">
-					<a>Judul JudulJudulJudulJudulJudulJudul</a>
-					<span class="sub header">Di post pada 12:12:12 21-12-2018</span>
-				</h3>
-
-				<div class="ui divider"></div>
-
-				<img class="ui medium left floated rounded image" src="https://dummyimage.com/1920x1080/000/fff">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-
-				<div class="ui divider"></div>
-				<div class="netadata">
-					<a class="ui tiny teal tag label">Tag</a>
-					<a class="ui tiny teal tag label">Tag</a>
-					<a class="ui tiny teal tag label">Tag</a>
-					<div style="float: right;">
-						<a class="ui tiny label blue">Pemrograman</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="ui segment">
-				<h3 class="ui header">
-					<a>Judul JudulJudulJudulJudulJudulJudul</a>
-					<span class="sub header">Di post pada 12:12:12 21-12-2018</span>
-				</h3>
-
-				<div class="ui divider"></div>
-
-				<img class="ui medium left floated rounded image" src="https://dummyimage.com/1920x1080/000/fff">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-
-				<div class="ui divider"></div>
-				<div class="netadata">
-					<a class="ui tiny teal tag label">Tag</a>
-					<a class="ui tiny teal tag label">Tag</a>
-					<a class="ui tiny teal tag label">Tag</a>
-					<div style="float: right;">
-						<a class="ui tiny label blue">Pemrograman</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<footer style="margin-top: 10px;">

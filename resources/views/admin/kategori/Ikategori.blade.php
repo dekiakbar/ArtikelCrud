@@ -91,7 +91,7 @@
 								    	<td>{{ $kategori->created_at->format('H:i:s j-M-Y') }}</td>
 								    	<td>{{ $kategori->updated_at->format('H:i:s j-M-Y') }}</td>
 								    	<td class="center aligned">
-								    		<a href="/kategori/{{ $kategori->slug }}/edit" class="ui mini animated fade button inverted blue">
+								    		<a href="{{ url('admin/kategori/'.$kategori->slug).'/edit' }}" class="ui mini animated fade button inverted blue">
 								    			<div class="hidden content">
 													<i class="edit icon"></i>
 												</div>
