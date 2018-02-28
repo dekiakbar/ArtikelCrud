@@ -3,11 +3,99 @@
 
 @section('isi')
 	<div class="ui container">
+		<div class="ui segment">
+			<div class="ui breadcrumb">
+				<a class="section">Dashboard</a>
+				<span class="divider">/</span>
+			</div>
+		</div>
+
+		<div class="ui segment">
+			<div class="ui three column stackable grid center aligned">
+
+				<div class="four wide column">
+            		<div class="ui horizontal segments">
+            		    <div class="ui inverted teal segment center aligned">
+            		        <div class="ui mini inverted  statistic">
+            		            <div class="value">
+            		                3,952
+            		            </div>
+            		            <div class="label">
+            		                Dilihat
+            		            </div>
+            		        </div>
+            		    </div>
+            		    <div class="ui inverted teal tertiary segment center aligned">
+            		        <div>
+            		        </div>
+            		    </div>
+            		</div>
+				</div>
+
+				<div class="four wide column">
+        		    <div class="ui horizontal segments">
+        		        <div class="ui inverted purple segment center aligned">
+        		            <div class="ui mini inverted statistic">
+        		                <div class="value">
+        		                    {{ $artikels->count() }}
+        		                </div>
+        		                <div class="label">
+        		                    Artikel
+        		                </div>
+        		            </div>
+        		        </div>
+        		        <div class="ui inverted purple tertiary segment center aligned">
+        		            <div>
+        		            </div>
+        		        </div>
+        		    </div>
+				</div>
+
+				<div class="four wide column">
+        			<div class="ui horizontal segments">
+        			    <div class="ui inverted blue segment center aligned">
+        			        <div class="ui mini inverted statistic">
+        			            <div class="value">
+        			                {{ $kategoris->count() }}
+        			            </div>
+        			            <div class="label">
+        			                Kategori
+        			            </div>
+        			        </div>
+        			    </div>
+        			    <div class="ui inverted blue tertiary segment center aligned">
+        			        <div id="">
+        			        </div>
+        			    </div>
+        			</div>
+				</div>
+	
+				<div class="four wide column">
+        			<div class="ui horizontal segments">
+        			    <div class="ui inverted yellow segment center aligned">
+        			        <div class="ui mini inverted statistic">
+        			            <div class="value">
+        			                {{ $tags->count() }}
+        			            </div>
+        			            <div class="label">
+        			                Tag
+        			            </div>
+        			        </div>
+        			    </div>
+        			    <div class="ui inverted yellow tertiary segment center aligned">
+        			        <div id="">
+        			        </div>
+        			    </div>
+        			</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="ui two column stackable grid">
 			
 		    <div class="nine wide column">
 				<div class="ui stacked segment">
-		        	<a class="ui ribbon orange label">Ganti Password</a>
+		        	<a class="ui ribbon teal label">Ganti Password</a>
 
 		        	<form class="ui form">
 		          		<div class="two fields">
@@ -75,7 +163,7 @@
 
 		          		</div>
 		          		
-		          		<button class="ui animated fade button blue">
+		          		<button class="ui animated fade button teal">
 							<div class="hidden content">
 								<i class="file icon"></i>
 							</div>
@@ -110,18 +198,8 @@
 
 			<div class="seven wide column">
 				<div class="seven wide column">
-			    	<div class="ui secondary segment">
-			    		<div class="ui grey small horizontal statistic">
-			    			<div class="value">
-			    				{{ $artikels->count() }}
-			    			</div>
-			    			<div class="label">
-			    				Artikel
-			    			</div>
-			    		</div>
-			    	</div>
 
-			      	<table class="ui small very compact unstackable selectable orange table">
+			      	<table class="ui small very compact unstackable selectable purple table">
 				        <thead>
 				          	<tr>
 				            	<th colspan="2">
