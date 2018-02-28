@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Requests\gantiPasReq;
 use Auth;
 use App\Artikel;
 use App\Tag;
@@ -39,7 +39,7 @@ class HomeController extends Controller
         return view('admin.index',compact('tags','kategoris','artikels'));
     }
 
-    public function gantiPas(Request $request)
+    public function gantiPas(gantiPasReq $request)
     {
         $id = $request->input('adadeh');
         $user = User::find($id);

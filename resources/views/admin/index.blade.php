@@ -24,6 +24,20 @@
 		  	@endif
 		@endif
 
+		@if($errors->any())
+		  	<div class="ui warning message">
+				<i class="close icon"></i>
+				<div class="header">
+					Notifikasi Form !!
+				</div>
+				<ul class="list">
+					@foreach($errors->all() as $error)	
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
+
 		<div class="ui segment">
 			<div class="ui breadcrumb">
 				<a class="section">Dashboard</a>
