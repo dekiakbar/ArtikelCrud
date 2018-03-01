@@ -13,7 +13,7 @@
 
 					<div class="ui divider"></div>
 
-					<img class="ui medium left floated rounded image" src="https://dummyimage.com/1920x1080/000/fff">
+					<img class="ui medium left floated rounded image" src="{{ asset('storage/foto') }}/{{ $artikel->foto }}">
 					<p>{{ $artikel->kutipan }}</p>
 
 					<div class="ui divider"></div>
@@ -26,13 +26,13 @@
 						@foreach($tags as $tag)
 							@foreach($tagAr as $tagArtikel)
 								@if($tagArtikel == $tag->id)
-									<a class="ui tiny teal tag label">{{ $tag->nama_tag }}</a>
+									<a href="{{ url('tag',$tag->slug) }}" class="ui tiny teal tag label">{{ $tag->nama_tag }}</a>
 								@endif
 							@endforeach
 						@endforeach
 
 						<div style="float: right;">
-							<a href="{{ url('kategori',$artikel->slug) }}" class="ui tiny label blue">{{ $artikel->kategori->nama_kategori }}</a>
+							<a href="{{ url('kategori',$artikel->kategori->slug) }}" class="ui tiny label blue">{{ $artikel->kategori->nama_kategori }}</a>
 						</div>
 					</div>
 				</div>

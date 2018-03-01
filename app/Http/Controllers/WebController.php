@@ -35,12 +35,13 @@ class WebController extends Controller
 
     public function tag(Request $request, $slug)
     {
-        $idTag = Tag::where('slug',$slug)->get();
+        $idTag = Tag::where('slug',$slug)->firstOrFail();
     	$tags = Tag::all();
     	$kategoris = Kategori::all();
     	$barus = Artikel::latest()->take(3)->get();
-    	$artikels = Artikel::select(DB::raw('FIND_IN_SET ()'))
-                            ->paginate(5);
+    	$artikels = Artikel::select('*')
+                    ->whereRaw('FIND_IN_SET('.$idTag->id.',tag_id)')
+                    ->paginate(5);
 
     	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
