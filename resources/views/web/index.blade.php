@@ -7,7 +7,7 @@
 			@foreach($artikels as $artikel)
 				<div class="ui segment raised">
 					<h3 class="ui header">
-						<a href="{{ url('/',$artikel->slug) }}">{{ $artikel->judul }}</a>
+						<a href="{{ url('/detail',$artikel->slug) }}">{{ $artikel->judul }}</a>
 						<span class="sub header">Di post pada {{ $artikel->created_at->format('H:i:s j-M-Y') }}</span>
 					</h3>
 

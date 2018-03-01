@@ -18,8 +18,8 @@ Route::get('/', 'WebController@tampil');
 Route::get('kategori/{kategori}','WebController@kategori');
 Route::get('tag/{tag}','WebController@tag');
 Route::post('/','WebController@cari');
+Route::get('detail/{slug}','WebController@detail');
 
-// Route::post('/','HomeController@gantiPas');
 /*
 |--------------------------------------------------------------------------
 | Route Admin login dan CRUD
@@ -28,6 +28,7 @@ Route::post('/','WebController@cari');
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'] ,function () {
 	Route::get('/', 'HomeController@index')->name('home');
+	Route::post('/','HomeController@gantiPas');
 
 	// Registrasi Admin
 	Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

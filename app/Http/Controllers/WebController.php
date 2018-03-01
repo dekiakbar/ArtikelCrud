@@ -59,4 +59,14 @@ class WebController extends Controller
 
         return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
+
+    public function detail($slug)
+    {
+        $tags = Tag::all();
+        $kategoris = Kategori::all();
+        $barus = Artikel::latest()->take(3)->get();
+        $artikel = Artikel::with('kategori')->where('artikel.slug',$slug)->firstOrFail();
+
+        return view('web.detail',compact('tags','kategoris','barus','artikel'));
+    }
 }

@@ -72,7 +72,7 @@
 						<div class="item">
 						  <i class="large middle aligned file alternate outline icon"></i>
 						  <div class="content">
-						    <a href="{{ url('',$baru->slug) }}" class="header">{{ $baru->judul }}</a>
+						    <a href="{{ url('detail',$baru->slug) }}" class="header">{{ $baru->judul }}</a>
 						    <div class="description">{{ $baru->created_at }}</div>
 						  </div>
 						</div>

@@ -69,7 +69,7 @@
 				</div>
 
 				<div class="four wide column">
-        		    <div class="ui horizontal segments">
+        		    <a href="{{ url('admin/artikel') }}" class="ui horizontal segments">
         		        <div class="ui inverted purple segment center aligned">
         		            <div class="ui mini inverted statistic">
         		                <div class="value">
@@ -85,11 +85,11 @@
             		        	<i class="file big icon"></i>
             		        </h3>
         		        </div>
-        		    </div>
+        		    </a>
 				</div>
 
 				<div class="four wide column">
-        			<div class="ui horizontal segments">
+        			<a href="{{ url('admin/kategori') }}" class="ui horizontal segments">
         			    <div class="ui inverted blue segment center aligned">
         			        <div class="ui mini inverted statistic">
         			            <div class="value">
@@ -105,11 +105,11 @@
             		        	<i class="settings big icon"></i>
             		        </h3>
         			    </div>
-        			</div>
+        			</a>
 				</div>
 	
 				<div class="four wide column">
-        			<div class="ui horizontal segments">
+        			<a href="{{ url('admin/tag') }}" class="ui horizontal segments">
         			    <div class="ui inverted yellow segment center aligned">
         			        <div class="ui mini inverted statistic">
         			            <div class="value">
@@ -125,7 +125,7 @@
             		        	<i class="tag big icon"></i>
             		        </h3>
         			    </div>
-        			</div>
+        			</a>
 				</div>
 			</div>
 		</div>
@@ -136,7 +136,7 @@
 				<div class="ui stacked segment">
 		        	<a class="ui ribbon teal label">Ganti Password</a>
 
-		        	<form class="ui form" method="post" action="{{ url('/') }}">
+		        	<form class="ui form" method="post" action="{{ url('admin') }}">
 		        		{{ csrf_field() }}
 		        		<input type="hidden" name="adadeh" value="{!!  Auth::id() !!}" readonly>
 		          		<div class="two fields">

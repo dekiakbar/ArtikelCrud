@@ -30,7 +30,6 @@ class Artikel extends Migration
 
         Schema::table('artikel',function (Blueprint $t){
             $t->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
-            // $t->foreign('tag_id')->references('id')->on('tag')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
