@@ -18,9 +18,19 @@
 
 					<div class="ui divider"></div>
 					<div class="netadata">
-						<a class="ui tiny teal tag label">Tag</a>
-						<a class="ui tiny teal tag label">Tag</a>
-						<a class="ui tiny teal tag label">Tag</a>
+						@php
+							$tag_id = $artikel->tag_id;
+							$tagAr = explode(',', $tag_id);
+						@endphp
+
+						@foreach($tags as $tag)
+							@foreach($tagAr as $tagArtikel)
+								@if($tagArtikel == $tag->id)
+									<a class="ui tiny teal tag label">{{ $tag->nama_tag }}</a>
+								@endif
+							@endforeach
+						@endforeach
+
 						<div style="float: right;">
 							<a href="{{ url('kategori',$artikel->slug) }}" class="ui tiny label blue">{{ $artikel->kategori->nama_kategori }}</a>
 						</div>

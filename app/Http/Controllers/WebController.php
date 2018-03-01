@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Tag;
 use App\Kategori;
 use App\Artikel;
+use DB;
 
 class WebController extends Controller
 {
@@ -38,9 +39,7 @@ class WebController extends Controller
     	$tags = Tag::all();
     	$kategoris = Kategori::all();
     	$barus = Artikel::latest()->take(3)->get();
-    	$artikels = Artikel::join('tag','artikel.tag_id','tag.id')
-                            ->select('*','artikel.slug as slug','tag.slug as tag_slug')
-                            ->where('tag.slug',$slug)
+    	$artikels = Artikel::select(DB::raw('FIND_IN_SET ()'))
                             ->paginate(5);
 
     	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);

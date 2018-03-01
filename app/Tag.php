@@ -15,6 +15,6 @@ class Tag extends Model
 
     public function artikel()
     {
-    	return $this->hasMany('App\Artikel','id');
+    	return $this->hasMany('App\Artikel');
     }
 }
