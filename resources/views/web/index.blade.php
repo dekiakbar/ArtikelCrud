@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			@endforeach
-			<div class="ui centered">
+			<div class="ui container center aligned">
 				{{ $artikels->appends(\Request::except('page'))->links('pagination.semantic-ui') }}
 			</div>
 

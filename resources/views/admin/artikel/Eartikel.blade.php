@@ -7,11 +7,11 @@
 		  	<div class="ten column">
 		  		<div class="ui segment">
 		  			<div class="ui tiny breadcrumb">
-						  <a class="section">Dashboard</a>
-						  <span class="divider">/</span>
-						  <a href="{{ url('admin/artikel') }}" class="active section">Artikel</a>
-						  <span class="divider">/</span>
-						  <div class="active section">Input Artikel</div>
+							<a href="{{ url('admin') }}" class="section">Dashboard</a>
+							<span class="divider">/</span>
+							<a href="{{ url('admin/artikel') }}" class="active section">Artikel</a>
+							<span class="divider">/</span>
+							<div class="active section">Input Artikel</div>
 					</div>
 		  		</div>
 			    <div class="ui segment stacked raised blue">

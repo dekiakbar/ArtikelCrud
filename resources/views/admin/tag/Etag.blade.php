@@ -12,8 +12,8 @@
 						  <div class="active section">Edit Tag</div>
 					</div>
 		  		</div>
-			    <div class="ui segment stacked raised violet">
-			    	<form class="ui form" method="post" action="{{ url('tag/'.$tag->slug) }}">
+			    <div class="ui segment stacked raised violet" style="margin-bottom: 275px;">
+			    	<form class="ui form" method="post" action="{{ url('admin/tag/'.$tag->slug) }}">
 			    		{{ csrf_field() }}
 			    		<input type="hidden" name="_method" value="PATCH">
 						<h4 class="ui dividing header">Edit Tag</h4>

@@ -93,7 +93,7 @@
 							    	<td>{{ $tag->created_at->format('H:i:s j-M-Y') }}</td>
 							    	<td>{{ $tag->updated_at->format('H:i:s j-M-Y') }}</td>
 							    	<td class="center aligned">
-							    		<a href="{{ url('tag/'.$tag->slug.'/edit') }}" class="ui mini animated fade button inverted violet">
+							    		<a href="{{ url('admin/tag/'.$tag->slug.'/edit') }}" class="ui mini animated fade button inverted violet">
 							    			<div class="hidden content">
 												<i class="edit icon"></i>
 											</div>
@@ -101,7 +101,7 @@
 												Edit    
 											</div>
 							    		</a>
-							    		<a onclick="hapus()" id="hapus" data-slug="tag/{{ $tag->slug }}" data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
+							    		<a onclick="hapus()" id="hapus" data-slug="admin/tag/{{ $tag->slug }}" data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
 							    			<div class="hidden content">
 												<i class="delete icon"></i>
 											</div>
@@ -120,7 +120,7 @@
 						</tbody>
 					</table>
 
-					<div class="ui centered">
+					<div class="ui container center aligned">
 						{{ $data->appends(\Request::except('page'))->links('pagination.semantic-ui') }}
 					</div>
 					

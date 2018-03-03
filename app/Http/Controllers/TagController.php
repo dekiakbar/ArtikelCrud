@@ -53,7 +53,7 @@ class TagController extends Controller
             session()->flash('pesan','Data tag gagal disimpan');
         }
 
-        return redirect('/tag');
+        return redirect('admin/tag');
     }
 
     public function ambilTag($kategori_id)
@@ -97,7 +97,7 @@ class TagController extends Controller
             session()->flash('pesan','Data tag gagal diubah');
         }
 
-        return redirect('tag');
+        return redirect('admin/tag');
     }
 
     /**
@@ -118,7 +118,7 @@ class TagController extends Controller
             session()->flash('pesan','Data tag gagal dihapus');
         } 
 
-        return redirect('tag');       
+        return redirect('admin/tag');       
     }
 
     public function cari(Request $request)

@@ -47,7 +47,7 @@ class KategoriController extends Controller
             session()->flash('status','Gagal');
             session()->flash('pesan','Data kategori gagal disimpan');
         }
-        return redirect('/kategori');
+        return redirect('admin/kategori');
     }
 
     /**
@@ -83,7 +83,7 @@ class KategoriController extends Controller
             session()->flash('pesan','Data kategori gagal disimpan');
         }
 
-        return redirect('kategori');
+        return redirect('admin/kategori');
     }
 
     /**

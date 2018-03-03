@@ -14,8 +14,8 @@
 						  <div class="active section">Edit Kategori</div>
 					</div>
 		  		</div>
-			    <div class="ui segment stacked raised violet">
-			    	<form class="ui form" method="post" action="{{ url('kategori/'.$data->slug) }}">
+			    <div class="ui segment stacked raised violet" style="margin-bottom: 275px;">
+			    	<form class="ui form" method="post" action="{{ url('admin/kategori/'.$data->slug) }}">
 			    		{{ csrf_field() }}
 			    		<input type="hidden" name="_method" value="PATCH">
 						<h4 class="ui dividing header">Edit Kategori</h4>

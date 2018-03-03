@@ -3,11 +3,13 @@
 
 @section('isi')
 	<div class="ui container">
-		<div class="ui one column stackable grid">
+		<div class="ui one column stackable grid" style="margin-bottom: 270px;">
 		  	<div class="ten column">
 		  		<div class="ui segment">
 		  			<div class="ui tiny breadcrumb">
-						  <a class="section">Dashboard</a>
+						  <a href="{{ url('admin') }}" class="section">Dashboard</a>
+						  <span class="divider">/</span>
+						  <a href="{{ url('admin/tag') }}" class="active section">Tag</a>
 						  <span class="divider">/</span>
 						  <div class="active section">Input Tag</div>
 					</div>
@@ -28,7 +30,7 @@
 		  		@endif
 		  		
 			    <div class="ui segment stacked raised violet">
-			    	<form class="ui form" method="post" action="{{ url('tag') }}">
+			    	<form class="ui form" method="post" action="{{ route('tag.store') }}">
 			    		{{ csrf_field() }}
 						<h4 class="ui dividing header">Tambah Tag</h4>
 						

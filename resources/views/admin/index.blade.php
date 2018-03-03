@@ -39,7 +39,7 @@
 		@endif
 
 		<div class="ui segment">
-			<div class="ui breadcrumb">
+			<div class="ui tiny breadcrumb">
 				<a class="section">Dashboard</a>
 				<span class="divider">/</span>
 			</div>

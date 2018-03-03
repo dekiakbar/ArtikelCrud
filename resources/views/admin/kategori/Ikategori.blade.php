@@ -29,9 +29,11 @@
 				
 				<div class="ui segment">
 		  			<div class="ui tiny breadcrumb">
-						  <a class="section">Dashboard</a>
-						  <span class="divider">/</span>
-						  <div class="active section">Daftar Kategori</div>
+							<a href="{{ url('admin') }}" class="section">Dashboard</a>
+							<span class="divider">/</span>
+							<a href="{{ url('admin/kategori') }}" class="active section">Kategori</a>
+							<span class="divider">/</span>
+							<div class="active section">Input Kategori</div>
 					</div>
 		  		</div>
 
@@ -99,7 +101,7 @@
 													Edit    
 												</div>
 								    		</a>
-								    		<a onclick="hapus()" id="hapus" data-slug="kategori/{{ $kategori->slug }}" 
+								    		<a onclick="hapus()" id="hapus" data-slug="admin/kategori/{{ $kategori->slug }}" 
 								    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
 								    			<div class="hidden content">
 													<i class="delete icon"></i>
@@ -119,7 +121,7 @@
 						</tbody>
 					</table>
 
-					<div class="ui centered">
+					<div class="ui container center aligned">
 						{{ $data->appends(\Request::except('page'))->links('pagination.semantic-ui') }}
 					</div>
 

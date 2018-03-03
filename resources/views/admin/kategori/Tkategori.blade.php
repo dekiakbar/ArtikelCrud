@@ -3,7 +3,7 @@
 
 @section('isi')
 	<div class="ui container">
-		<div class="ui one column stackable grid">
+		<div class="ui one column stackable grid" style="margin-bottom: 270px;">
 		  	<div class="ten column">
 
 		  		<div class="ui segment">
@@ -31,7 +31,7 @@
 		  		@endif
 
 			    <div class="ui segment stacked raised violet">
-			    	<form class="ui form" method="post" action="{{ url('kategori') }}">
+			    	<form class="ui form" method="post" action="{{ route('kategori.store') }}">
 			    		{{ csrf_field() }}
 						<h4 class="ui dividing header">Tambah Kategori</h4>
 						
