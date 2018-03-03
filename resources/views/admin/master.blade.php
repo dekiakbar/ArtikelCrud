@@ -110,6 +110,7 @@
 	</script>
 	<script type="text/javascript">
 		$('textarea[name=artikel]').ckeditor({
+			// toolbarGroups: [],
     		height: 600,
     		filebrowserImageBrowseUrl: route_prefix + '?type=Images',
     		filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',

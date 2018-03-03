@@ -29,7 +29,7 @@
 								<div class="field">
 									<label>Slug</label>
 								  	<input name="slug" id="slug" placeholder="Slug " type="text">
-								</div>
+								</div>		
 							</div>
 						</div>
 

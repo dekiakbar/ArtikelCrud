@@ -9,6 +9,8 @@ use App\Kategori;
 use App\Artikel;
 use DB;
 
+use Chencha\Share\ShareFacade as Share;
+
 class WebController extends Controller
 {
     public function tampil(Request $request)
@@ -18,7 +20,11 @@ class WebController extends Controller
     	$barus = Artikel::latest()->take(3)->get();
     	$artikels = Artikel::with('kategori')->paginate(5);
 
-    	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
+        $bagikan  = Share::load('http://localhost:8000/', 'coba')
+                    ->services('facebook','twitter','linkedin','telegram');
+        $bagikan     = (object) $bagikan;
+
+    	return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
 
     public function kategori(Request $request, $slug)
@@ -30,7 +36,11 @@ class WebController extends Controller
     				->select('*','artikel.slug as slug','kategori.slug as kategori_slug')
     				->where('kategori.slug',$slug)->paginate(5);
 
-    	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
+        $bagikan  = Share::load('http://localhost:8000/', 'coba')
+                    ->services('facebook','twitter','linkedin','telegram');
+        $bagikan     = (object) $bagikan;
+
+    	return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
 
     public function tag(Request $request, $slug)
@@ -43,7 +53,11 @@ class WebController extends Controller
                     ->whereRaw('FIND_IN_SET('.$idTag->id.',tag_id)')
                     ->paginate(5);
 
-    	return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
+        $bagikan  = Share::load('http://localhost:8000/', 'coba')
+                    ->services('facebook','twitter','linkedin','telegram');
+        $bagikan     = (object) $bagikan;
+
+    	return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
 
     public function cari(Request $request)
@@ -52,12 +66,16 @@ class WebController extends Controller
         $tags = Tag::all();
         $kategoris = Kategori::all();
         $barus = Artikel::latest()->take(3)->get();
-        $artikels = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id')
+        $artikels = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id','foto')
                           ->whereHas('kategori', function($query) use($cari) {$query->where('nama_kategori', 'like', '%'.$cari.'%');})
                           ->orWhereHas('tag', function($query) use($cari) {$query->where('nama_tag', 'like', '%'.$cari.'%');})
                           ->orWhere("judul", "LIKE","%$cari%")->orderBy('created_at', 'desc')->paginate(5);
 
-        return view('web.index',compact('tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
+        $bagikan  = Share::load('http://localhost:8000/', 'coba')
+                    ->services('facebook','twitter','linkedin','telegram');
+        $bagikan     = (object) $bagikan;
+
+        return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))->with('no',($request->input('page',1)-1)*5);
     }
 
     public function detail($slug)
@@ -67,6 +85,10 @@ class WebController extends Controller
         $barus = Artikel::latest()->take(3)->get();
         $artikel = Artikel::with('kategori')->where('artikel.slug',$slug)->firstOrFail();
 
-        return view('web.detail',compact('tags','kategoris','barus','artikel'));
+        $bagikan  = Share::load('http://localhost:8000/', 'coba')
+                    ->services('facebook','twitter','linkedin','telegram');
+        $bagikan     = (object) $bagikan;
+
+        return view('web.detail',compact('bagikan','tags','kategoris','barus','artikel'));
     }
 }

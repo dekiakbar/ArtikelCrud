@@ -88,10 +88,10 @@
 
 				<div class="ui horizontal list">
 					<div class="item">
-						<a ><i class="big facebook icon"></i></a>
-						<a ><i class="big twitter square icon"></i></a>
-						<a ><i class="big linkedin square icon"></i></a>
-						<a ><i class="big telegram icon"></i></a>
+						<a href="{{ $bagikan->facebook }}"><i class="big facebook icon"></i></a>
+						<a href="{{ $bagikan->twitter }}"><i class="big twitter square icon"></i></a>
+						<a href="{{ $bagikan->linkedin }}"><i class="big linkedin square icon"></i></a>
+						<a href="{{ $bagikan->telegram }}"><i class="big telegram icon"></i></a>
 					</div>
 				</div>
 			</div>
