@@ -95,7 +95,13 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         $hapus = Kategori::where('slug',$id)->firstOrFail();
-        $hapus->delete();
+        if ($hapus->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data tag berhasil dihapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data tag gagal dihapus');
+        } 
     }
 
     public function cari(Request $request){

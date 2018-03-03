@@ -101,7 +101,7 @@
 													Edit    
 												</div>
 								    		</a>
-								    		<a onclick="hapus()" id="hapus" data-slug="admin/kategori/{{ $kategori->slug }}" 
+								    		<a onclick="hapus()" id="hapus" data-slug="/admin/kategori/{{ $kategori->slug }}" 
 								    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
 								    			<div class="hidden content">
 													<i class="delete icon"></i>

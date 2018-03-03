@@ -110,15 +110,15 @@
 												Edit    
 											</div>
 						    			</a>
-						    			<a onclick="hapus()" id="hapus" data-slug="admin/artikel/{{ $artikel->slug }}" 
-								    			data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
-						    				<div class="hidden content">
+						    			<a onclick="hapus()" id="hapus" data-slug="/admin/artikel/{{ $artikel->slug }}" 
+								    		data-token="{{ csrf_token() }}" class="ui mini animated vertical button inverted red">
+								    		<div class="hidden content">
 												<i class="delete icon"></i>
 											</div>
 											<div class="visible content">
 												Hapus    
 											</div>
-						    			</a>
+								    	</a>
 						    		</td>
 								</tr>
 							@endforeach

@@ -117,8 +117,7 @@ class TagController extends Controller
             session()->flash('status','Gagal');
             session()->flash('pesan','Data tag gagal dihapus');
         } 
-
-        return redirect('admin/tag');       
+       
     }
 
     public function cari(Request $request)
