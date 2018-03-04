@@ -14,9 +14,9 @@
 <body>
 
 	<div class="ui secondary pointing menu blue">
-		<div class="header item">
+		<a href="{{ url('/') }}" class="header item">
     		Artikel Laravel
-		</div>
+		</a>
 		<a class="active item">
 			Home
 		</a>
