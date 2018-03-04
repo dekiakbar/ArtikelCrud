@@ -24,8 +24,8 @@ class tagReq extends FormRequest
     public function rules()
     {
         return [
-            'nama_tag' => 'required | min:3 | max: 50',
-            'slug' => 'required | min:3 | max:50',
+            'nama_tag'    => 'required | min:3 | max: 50',
+            'slug'        => 'required | min:3 | max:50',
             'kategori_id' => 'required | min:1 | max:5'
         ];
     }
@@ -33,15 +33,15 @@ class tagReq extends FormRequest
     public function messages()
     {
         return [
-            'nama_tag.required' => 'Form tag harus diisi!',
-            'nama_tag.min' => 'Form tag minimal berisi 3 karakter!',
-            'nama_tag.max' => 'Form tag maksimal berisi 50 karakter',
-            'slug.required' => 'Form slug harus diisi!',
-            'slug.min' => 'Form slug minimal berisi 3 karakter!',
-            'slug.max' => 'Form slug maksimal berisi 50 karakter',
+            'nama_tag.required'    => 'Form tag harus diisi!',
+            'nama_tag.min'         => 'Form tag minimal berisi 3 karakter!',
+            'nama_tag.max'         => 'Form tag maksimal berisi 50 karakter',
+            'slug.required'        => 'Form slug harus diisi!',
+            'slug.min'             => 'Form slug minimal berisi 3 karakter!',
+            'slug.max'             => 'Form slug maksimal berisi 50 karakter',
             'kategori_id.required' => 'Form kategori harus dipilih!',
-            'kategori_id.min' => 'Form kategori minimal berisi 3 karakter!',
-            'kategori_id.max' => 'Form kategori maksimal berisi 50 karakter',
+            'kategori_id.min'      => 'Form kategori minimal berisi 3 karakter!',
+            'kategori_id.max'      => 'Form kategori maksimal berisi 50 karakter',
 
         ];
     }

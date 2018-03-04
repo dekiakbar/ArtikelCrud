@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\artikelReq;
+
 use App\Artikel;
 use App\Kategori;
 use App\Tag;
@@ -41,34 +43,34 @@ class ArtikelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(artikelReq $request)
     {
         $tag='';
         if ($request->hasFile('foto')) {
 
-            $foto = $request->file('foto');
-            $nama = time().'.'.$foto->getClientOriginalExtension();
+            $foto   = $request->file('foto');
+            $nama   = time().'.'.$foto->getClientOriginalExtension();
             $lokasi = public_path('/storage/foto');
-            $statusUpload=$foto->move($lokasi, $nama);
+            $status = $foto->move($lokasi, $nama);
 
-            $tag= implode(",", $request->input('tag'));
+            $tag    = implode(",", $request->input('tag'));
 
-            $data = Artikel::create([
+            $data   = Artikel::create([
 
-                'judul' =>$request->input('judul'),
-                'kutipan' => $request->input('kutipan'),
-                'slug' => $request->input('slug'),
-                'kategori_id' => $request->input('kategori'),
-                'tag_id' => $tag,
-                'isi' => $request->input('artikel'),
-                'meta_keyword' => $request->input('meta_keyword'),
-                'meta_deskripsi' => $request->input('meta_deskripsi'),
-                'foto' => $nama,
-                'status' => $request->input('status')
+                'judul'             =>$request->input('judul'),
+                'kutipan'           => $request->input('kutipan'),
+                'slug'              => $request->input('slug'),
+                'kategori_id'       => $request->input('kategori'),
+                'tag_id'            => $tag,
+                'isi'               => $request->input('artikel'),
+                'meta_keyword'      => $request->input('meta_keyword'),
+                'meta_deskripsi'    => $request->input('meta_deskripsi'),
+                'foto'              => $nama,
+                'status'            => $request->input('status')
 
             ]);
 
-            if ($data && $statusUpload) {
+            if ($data && $status) {
                 session()->flash('status','Sukses');
                 session()->flash('pesan','Data Artikel berhasil dibuat');
             }else{
@@ -87,10 +89,10 @@ class ArtikelController extends Controller
      */
     public function show($slug)
     {
-        $artikel = Artikel::with('kategori')
+        $artikel  = Artikel::with('kategori')
                     ->where('artikel.slug',$slug)
                     ->firstOrFail();
-        $tags = Tag::all();
+        $tags     = Tag::all();
 
         return view('admin.artikel.Dartikel',compact('artikel','tags'));
     }
@@ -103,12 +105,12 @@ class ArtikelController extends Controller
      */
     public function edit($slug)
     {
-        $artikel = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
-                    ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
-                    ->where('artikel.slug',$slug)
-                    ->firstOrFail();
-        $kategoris = Kategori::all();
-        $tags = Tag::all();
+        $artikel    = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
+                        ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
+                        ->where('artikel.slug',$slug)
+                        ->firstOrFail();
+        $kategoris  = Kategori::all();
+        $tags       = Tag::all();
         $tagArtikel = explode(',',$artikel->tag_id);
 
         return view('admin.artikel.Eartikel',compact('artikel','kategoris','tagArtikel','tags'));
@@ -123,33 +125,33 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $tag= implode(",", $request->input('tag'));
+        $tag      = implode(",", $request->input('tag'));
 
         $dataFoto = Artikel::where('slug',$slug)
                     ->select('foto')
                     ->firstOrFail();
 
         if ($request->input('banding') != $dataFoto->foto) {
-            $foto = $request->file('foto');
-            $nama = time().'.'.$foto->getClientOriginalExtension();
+            $foto   = $request->file('foto');
+            $nama   = time().'.'.$foto->getClientOriginalExtension();
             $lokasi = public_path('/storage/foto');
-            $statusUpload=$foto->move($lokasi, $nama);
+            $status =$foto->move($lokasi, $nama);
             @unlink(public_path('storage/foto/'.$dataFoto->foto));
         }else{
-            $nama=$request->input('banding');
+            $nama   =$request->input('banding');
         }
 
-        $update = Artikel::where('slug',$slug)->firstOrFail();
-        $update->judul = $request->input('judul');
-        $update->kutipan = $request->input('kutipan');
-        $update->slug = $request->input('slug');
-        $update->kategori_id = $request->input('kategori');
-        $update->tag_id = $tag;
-        $update->isi = $request->input('artikel');
-        $update->meta_keyword = $request->input('meta_keyword');
+        $update                 = Artikel::where('slug',$slug)->firstOrFail();
+        $update->judul          = $request->input('judul');
+        $update->kutipan        = $request->input('kutipan');
+        $update->slug           = $request->input('slug');
+        $update->kategori_id    = $request->input('kategori');
+        $update->tag_id         = $tag;
+        $update->isi            = $request->input('artikel');
+        $update->meta_keyword   = $request->input('meta_keyword');
         $update->meta_deskripsi = $request->input('meta_deskripsi');
-        $update->foto = $nama;
-        $update->status = $request->input('status');
+        $update->foto           = $nama;
+        $update->status         = $request->input('status');
 
         if ($update->save()) {
             session()->flash('status','Sukses');
@@ -183,11 +185,11 @@ class ArtikelController extends Controller
 
     public function cari(Request $request)
     {
-        $cari = $request->input('cari');
-        $artikels = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
-                    ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
-                    ->where('judul','LIKE','%'.$cari.'%')
-                    ->paginate(10);
+        $cari       = $request->input('cari');
+        $artikels   = Artikel::join('kategori','artikel.kategori_id','=','kategori.id')
+                        ->select('*','artikel.slug as slug','kategori.slug as ketegori_slug')
+                        ->where('judul','LIKE','%'.$cari.'%')
+                        ->paginate(10);
 
         return view('admin.artikel.Iartikel',compact('artikels'))->with('no',($request->input('page',1)-1)*10);
     }

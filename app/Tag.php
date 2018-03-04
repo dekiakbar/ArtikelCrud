@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     protected $fillable = ['nama_tag', 'slug', 'kategori_id'];
-    protected $table = 'tag';
+    protected $table 	= 'tag';
 
     public function kategori(){
     	return $this->hasMany('App\Kategori','id');

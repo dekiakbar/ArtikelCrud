@@ -71,7 +71,7 @@ class KategoriController extends Controller
      */
     public function update(kategoriReq $request, $id)
     {
-        $update = Kategori::where('slug',$id)->firstOrFail();
+        $update                 = Kategori::where('slug',$id)->firstOrFail();
         $update->nama_kategori  = $request->input('nama_kategori');
         $update->slug           = $request->input('slug');
         

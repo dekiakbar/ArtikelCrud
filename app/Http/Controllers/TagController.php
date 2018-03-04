@@ -17,9 +17,9 @@ class TagController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Tag::join('kategori','tag.kategori_id','=','kategori.id')
-                    ->select('*','tag.slug as slug','kategori.slug as kategori.slug')
-                    ->paginate(10);
+        $data      = Tag::join('kategori','tag.kategori_id','=','kategori.id')
+                        ->select('*','tag.slug as slug','kategori.slug as kategori.slug')
+                        ->paginate(10);
         $kategoris = Kategori::all();
         return view('admin.tag.Itag',compact('data','kategoris'))->with('no',($request->input('page',1)-1)*10);
     }
@@ -70,8 +70,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::where('slug',$id)->firstOrFail();
-        $kategoris = Kategori::all();
+        $tag        = Tag::where('slug',$id)->firstOrFail();
+        $kategoris  = Kategori::all();
         return view('admin.tag.Etag',compact('tag','kategoris'));
     }
 
@@ -84,9 +84,9 @@ class TagController extends Controller
      */
     public function update(tagReq $request, $id)
     {
-        $ubah = Tag::where('slug',$id)->firstOrFail();
-        $ubah->nama_tag = $request->input('nama_tag');
-        $ubah->slug = $request->input('slug');
+        $ubah              = Tag::where('slug',$id)->firstOrFail();
+        $ubah->nama_tag    = $request->input('nama_tag');
+        $ubah->slug        = $request->input('slug');
         $ubah->kategori_id = $request->input('kategori_id');
 
         if ($ubah->save()) {
