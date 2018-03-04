@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="ui text container">
-		<div class="ui stackable centered grid">
+		<div class="ui stackable centered grid" style="padding-top: 20%;">
 			<div class="ui segment teal raised">
 				<h1 style="margin-top: 10px;"><i class="em em-hushed"></i></h1>
 				<div class="ui divider"></div>
