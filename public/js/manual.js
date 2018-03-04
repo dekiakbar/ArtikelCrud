@@ -93,3 +93,10 @@ $('#kategori').on('change', function(){
         });
     });
 });
+
+//Js Tentang website 
+function tentang(){
+  $('.ui.modal').modal({
+    blurring:true
+  }).modal('show');
+}

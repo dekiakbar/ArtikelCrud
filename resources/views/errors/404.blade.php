@@ -10,6 +10,7 @@
 		<div class="ui stackable centered grid">
 			<div class="ui segment teal raised">
 				<h1 style="margin-top: 10px;"><i class="em em-hushed"></i></h1>
+				<div class="ui divider"></div>
 				<h1 class="header">404 | Not Found</h1>
 				<div class="ui divider"></div>
 				<div class="sub header">Maaf halaman yang anda minta tidak ditemukan</div>
@@ -21,7 +22,7 @@
 						<div class="hidden content">
 							<i class="home icon"></i>
 						</div>
-						
+
 						<div class="visible content">
 							Home    
 						</div>

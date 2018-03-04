@@ -20,9 +20,32 @@
 		<a class="active item">
 			Home
 		</a>
-		<a class="item">
+		<a onclick="tentang()" class="item">
 			Tentang
 		</a>
+	</div>
+
+	{{-- seksi tentang website --}}
+	<div class="ui modal">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    Tentang Website
+	  </div>
+	  <div class="image content">
+	    <div class="ui medium image">
+	      <img src="{{ asset('storage/me.jpg') }}">
+	    </div>
+	    <div class="description">
+	      <div class="ui header">Website Portofolio</div>
+	      <p>Website ini dibuat sebagai prtofolio saya dalam membuat website menggunakan laravel</p>
+	    </div>
+	  </div>
+	  <div class="actions">
+	    <div class="ui positive right labeled icon button">
+	      Kembali
+	      <i class="right arrow icon"></i>
+	    </div>
+	  </div>
 	</div>
 
 	<div class="ui two column stackable grid">
