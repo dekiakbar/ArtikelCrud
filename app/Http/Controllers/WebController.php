@@ -84,7 +84,8 @@ class WebController extends Controller
                                 $query->where('nama_tag', 'like', '%'.$cari.'%');
                             })
                             ->orWhere("judul", "LIKE","%$cari%")
-                            ->orderBy('created_at', 'desc')->paginate(5);
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(5);
 
         $bagikan    = Share::load($this->nama_domain, $this->quote_share)
                             ->services('facebook','twitter','linkedin','telegram');

@@ -4,10 +4,11 @@
 	<title>404 | Not Found</title>
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/manual.css') }}">
 </head>
 <body>
 	<div class="ui text container">
-		<div class="ui stackable centered grid" style="padding-top: 20%;">
+		<div class="ui stackable centered grid" id="margin404">
 			<div class="ui segment teal raised">
 				<h1 style="margin-top: 10px;"><i class="em em-hushed"></i></h1>
 				<div class="ui divider"></div>
