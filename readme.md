@@ -11,4 +11,6 @@ Portofolio
 8. Enjoy :D
 
 ## Waring
-1. Projek ini dibuat dan tersedia secara gratis tanpa dipungut biaya apapun **Gunakan Sebaik mungkin dan saya tidak menjamin atas PENYALAHGUNAAN dari projek ini**
+1. Projek ini dibuat dan tersedia secara gratis tanpa dipungut biaya apapun 
+2. **Gunakan Sebaik mungkin dan saya tidak BERTANGGUNG JAWAB atas PENYALAHGUNAAN dari projek ini**
+3. **Always Use With Your Own Risk**
