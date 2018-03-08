@@ -12,6 +12,7 @@ use App\Artikel;
 use App\Tag;
 use App\Kategori;
 use App\User;
+use App\Tamu;
 
 class HomeController extends Controller
 {
@@ -35,8 +36,9 @@ class HomeController extends Controller
         $tags       = Tag::all();
         $kategoris  = Kategori::all();
         $artikels   = Artikel::all();
+        $tamus      = Tamu::all();
 
-        return view('admin.index',compact('tags','kategoris','artikels'));
+        return view('admin.index',compact('tags','kategoris','artikels','tamus'));
     }
 
     public function gantiPas(gantiPasReq $request)

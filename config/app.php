@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Chencha\Share\ShareServiceProvider::class,
+        \hisorange\BrowserDetect\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -229,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Share' => Chencha\Share\ShareFacade::class,
+        'Browser' => \hisorange\BrowserDetect\Facade::class,
 
     ],
 

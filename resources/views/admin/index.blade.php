@@ -53,7 +53,7 @@
             		    <div class="ui inverted teal segment center aligned">
             		        <div class="ui mini inverted  statistic">
             		            <div class="value">
-            		                3,952
+            		               {{ $tamus->count() }}
             		            </div>
             		            <div class="label">
             		                Dilihat

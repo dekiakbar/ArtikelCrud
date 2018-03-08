@@ -8,6 +8,8 @@ use App\Tag;
 use App\Kategori;
 use App\Artikel;
 use DB;
+use App\Tamu;
+use Browser;
 
 use Chencha\Share\ShareFacade as Share;
 
@@ -28,6 +30,12 @@ class WebController extends Controller
                         ->services('facebook','twitter','linkedin','telegram');
         $bagikan   = (object) $bagikan;
 
+        Tamu::create([
+            'user' => Browser::userAgent(),
+            'browser' => Browser::browserName(),
+            'os' => Browser::platformFamily(),
+        ]); 
+
     	return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))
                 ->with('no',($request->input('page',1)-1)*5);
     }
@@ -44,6 +52,12 @@ class WebController extends Controller
         $bagikan   = Share::load($this->nama_domain.'kategori/'.$slug, $this->quote_share)
                         ->services('facebook','twitter','linkedin','telegram');
         $bagikan   = (object) $bagikan;
+
+        Tamu::create([
+            'user' => Browser::userAgent(),
+            'browser' => Browser::browserName(),
+            'os' => Browser::platformFamily(),
+        ]); 
 
     	return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))
                 ->with('no',($request->input('page',1)-1)*5);
@@ -62,6 +76,12 @@ class WebController extends Controller
         $bagikan   = Share::load($this->nama_domain.'tag/'.$idTag->slug, $this->quote_share)
                             ->services('facebook','twitter','linkedin','telegram');
         $bagikan   = (object) $bagikan;
+
+        Tamu::create([
+            'user' => Browser::userAgent(),
+            'browser' => Browser::browserName(),
+            'os' => Browser::platformFamily(),
+        ]); 
 
     	return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))
                 ->with('no',($request->input('page',1)-1)*5);
@@ -91,6 +111,12 @@ class WebController extends Controller
                             ->services('facebook','twitter','linkedin','telegram');
         $bagikan    = (object) $bagikan;
 
+        Tamu::create([
+            'user' => Browser::userAgent(),
+            'browser' => Browser::browserName(),
+            'os' => Browser::platformFamily(),
+        ]); 
+
         return view('web.index',compact('bagikan','tags','kategoris','barus','artikels'))
                 ->with('no',($request->input('page',1)-1)*5);
     }
@@ -105,6 +131,12 @@ class WebController extends Controller
         $bagikan    = Share::load($this->nama_domain.'detail/'.$slug, $this->quote_share)
                             ->services('facebook','twitter','linkedin','telegram');
         $bagikan    = (object) $bagikan;
+
+        Tamu::create([
+            'user' => Browser::userAgent(),
+            'browser' => Browser::browserName(),
+            'os' => Browser::platformFamily(),
+        ]); 
 
         return view('web.detail',compact('bagikan','tags','kategoris','barus','artikel'));
     }
