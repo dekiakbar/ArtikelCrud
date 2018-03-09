@@ -1,11 +1,11 @@
 # Artikel Laravel
 Projek ini dibuat sebagai Portofolio.
 ## Penunjang
-[MySql-Server](https://dev.mysql.com/downloads/mysql/)
-[Composer](https://getcomposer.org/)
-[PHP >= 7.0](www.php.net/)
-[Git-CLI](https://git-scm.com/downloads)
-[NIAT]
+- [MySql-Server](https://dev.mysql.com/downloads/mysql/)
+- [Composer](https://getcomposer.org/)
+- [PHP >= 7.0](www.php.net/)
+- [Git-CLI](https://git-scm.com/downloads)
+- [NIAT](https://id.wikipedia.org/wiki/Niat)
 
 ## Instalasi
 1. Download repositori ini menggunakan git-CLI : `git clone https://github.com/dekiakbar/ArtikelCrud.git`
