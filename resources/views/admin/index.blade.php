@@ -53,7 +53,7 @@
             		    <div class="ui inverted teal segment center aligned">
             		        <div class="ui mini inverted  statistic">
             		            <div class="value">
-            		               {{ $tamus->count() }}
+            		               {{ $tamus }}
             		            </div>
             		            <div class="label">
             		                Dilihat
@@ -73,7 +73,7 @@
         		        <div class="ui inverted purple segment center aligned">
         		            <div class="ui mini inverted statistic">
         		                <div class="value">
-        		                    {{ $artikels->count() }}
+        		                    {{ $artikels }}
         		                </div>
         		                <div class="label">
         		                    Artikel
@@ -93,7 +93,7 @@
         			    <div class="ui inverted blue segment center aligned">
         			        <div class="ui mini inverted statistic">
         			            <div class="value">
-        			                {{ $kategoris->count() }}
+        			                {{ $kategoris }}
         			            </div>
         			            <div class="label">
         			                Kategori
@@ -113,7 +113,7 @@
         			    <div class="ui inverted yellow segment center aligned">
         			        <div class="ui mini inverted statistic">
         			            <div class="value">
-        			                {{ $tags->count() }}
+        			                {{ $tags }}
         			            </div>
         			            <div class="label">
         			                Tag
@@ -222,48 +222,19 @@
 		        	</form>
 		      	</div>
 
-		      	<table class="ui small very compact unstackable selectable olive table">
-			        <thead>
-			         	<tr>
-			            	<th colspan="2">
-			              		Kategori
-			            	</th>
-			          	</tr>
-			        </thead>
-
-			        <tbody>
-			        	@foreach($kategoris as $kategori)
-			          		<tr>
-			            		<td>{{ $kategori->nama_kategori }}</td>
-			            		<td class="right aligned">20,15</td>
-			          		</tr>
-			          	@endforeach
-			        </tbody>
-			    </table>
-
 			</div>
 
 			<div class="seven wide column">
 				<div class="seven wide column">
-
-			      	<table class="ui small very compact unstackable selectable purple table">
-				        <thead>
-				          	<tr>
-				            	<th colspan="2">
-				              		Tag
-				            	</th>
-				          	</tr>
-				        </thead>
-
-				        <tbody>
-				        	@foreach($tags as $tag)
-				          		<tr>
-				            		<td>{{ $tag->nama_tag }}</td>
-				            		<td class="right aligned">11,42</td>
-				          		</tr>
-				          	@endforeach
-				        </tbody>
-			      	</table>
+					<div class="ui segment yellow raised">
+						<h4 class="ui horizontal divider header">
+						  	<i class="pie chart icon"></i>
+						  	Pengunjung
+						</h4>
+						<div style="max-width:100%;">
+    						{!! $grafikOS->render() !!}
+						</div>
+					</div>
 		    	</div>
 			</div>
 		</div>

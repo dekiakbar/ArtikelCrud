@@ -33,44 +33,82 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tags       = Tag::all();
-        $kategoris  = Kategori::all();
-        $artikels   = Artikel::all();
-        $tamus      = Tamu::all();
+        $tags       = Tag::count();
+        $kategoris  = Kategori::count();
+        $artikels   = Artikel::count();
+        $tamus      = Tamu::count();
 
-        //seksi grafik garis
-        $label  = array();
-        $tamu   = array();
-        $data   = Tamu::orderBy('created_at', 'asc')
-                        ->get()
-                        ->groupBy(function($date){
-                            return $date->created_at->format('F,Y');
-                        });
-        foreach ($data as $key => $value) {
-            $label[]    = $key;
-            $tamu[]     = $data->get($key)->count();
-        }
+        /*
+        |--------------------------------------------------------------------------
+        | Logika Grafik Pengunjung
+        |--------------------------------------------------------------------------
+        |
+        */
+            $label  = array();
+            $tamu   = array();
+            $data   = Tamu::orderBy('created_at', 'asc')
+                            ->get()
+                            ->groupBy(function($date){
+                                return $date->created_at->format('F,Y');
+                            });
 
-        $chart = app()->chartjs
-                ->name('grafik')
-                ->type('line')
-                ->size(['width' => 400, 'height' => 200])
-                ->labels($label)
-                ->datasets([
-                    [
-                        "label" => "Data Pengunjung",
-                        'backgroundColor' => "rgba(38, 185, 154, 0.31)",
-                        'borderColor' => "rgba(38, 185, 154, 0.7)",
-                        "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                        "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
-                        "pointHoverBackgroundColor" => "#fff",
-                        "pointHoverBorderColor" => "rgba(220,220,220,1)",
-                        'data' => $tamu,
-                    ]
-                ])
-                ->options([]);
+            foreach ($data as $key => $value) {
+                $label[]    = $key;
+                $tamu[]     = $data->get($key)->count();
+            }
+    
+            $chart = app()->chartjs
+                    ->name('grafikTamu')
+                    ->type('line')
+                    ->size(['width' => 400, 'height' => 200])
+                    ->labels($label)
+                    ->datasets([
+                        [
+                            "label" => "Data Pengunjung",
+                            'backgroundColor' => "rgba(38, 185, 154, 0.31)",
+                            'borderColor' => "rgba(38, 185, 154, 0.7)",
+                            "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
+                            "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+                            "pointHoverBackgroundColor" => "#fff",
+                            "pointHoverBorderColor" => "rgba(220,220,220,1)",
+                            'data' => $tamu,
+                        ]
+                    ])
+                    ->options([]);
+        
+        /*
+        |--------------------------------------------------------------------------
+        | Logika OS Pengunjung
+        |--------------------------------------------------------------------------
+        |
+        */
+            $labelOS = array();
+            $tamuOS  = array();
+            $dataOS = Tamu::orderBy('created_at', 'asc')
+                            ->get()
+                            ->groupBy(function($os){
+                                return $os->os;
+                            });
+            foreach ($dataOS as $key => $value) {
+                $labelOS[]  = $key;
+                $tamuOS[]   = $dataOS->get($key)->count();
+            }
 
-        return view('admin.index',compact('tags','kategoris','artikels','tamus','chart'));
+            $grafikOS = app()->chartjs
+                    ->name('grafikOS')
+                    ->type('pie')
+                    ->size(['width' => 400, 'height' => 200])
+                    ->labels($labelOS)
+                    ->datasets([
+                        [
+                            'backgroundColor' => ['#FF6384', '#36A2EB'],
+                            'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
+                            'data' => $tamuOS
+                        ]
+                    ])
+                    ->options([]);     
+                         
+        return view('admin.index',compact('tags','kategoris','artikels','tamus','chart','grafikOS'));
     }
 
     public function gantiPas(gantiPasReq $request)

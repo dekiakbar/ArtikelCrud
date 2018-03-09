@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/',function(){
-// 	return view('admin.index');
-// });
 
 Route::get('/', 'WebController@tampil');
 Route::get('kategori/{kategori}','WebController@kategori');

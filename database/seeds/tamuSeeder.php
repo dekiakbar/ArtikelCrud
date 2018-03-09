@@ -13,10 +13,10 @@ class tamuSeeder extends Seeder
      */
     public function run()
     {
-    	$users 	= [
+    	$users 		= [
     					'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0',
     					'Mozilla/5.0 (X11; Window; window x86_64; rv:57.0) Gecko/20100101 Firefox/57.0'
-    				  ];
+    			  	  ];
     	$browsers	= ['UC Browser','Firefox','Chrome','Iceweals','Safari'];
     	$oses		= ['MacOS','Linux','Window'];
         
