@@ -40,8 +40,13 @@
 		  	</div>
 		</div>
 		<div class="right menu">
-		  	<a href="{{ route('logout') }}" class="ui item" onclick="event.preventDefault();document.getElementById('keluar').submit();">
-		    	Logout
+		  	<a href="{{ route('logout') }}" class="ui item animated fade button teal" onclick="event.preventDefault();document.getElementById('keluar').submit();">
+		  		<div class="hidden content">
+					<i class="sign out icon"></i>
+				</div>
+				<div class="visible content">
+					Keluar    
+				</div>
 		  	</a>
 		  	<form id="keluar" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}

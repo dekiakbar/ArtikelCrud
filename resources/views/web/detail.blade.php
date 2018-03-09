@@ -5,9 +5,9 @@
 	<div class="twelve wide column">
 		<div class="ui segment">
 			<h1 class="ui header">
-				Judul web pada blog artikel laravel
+				{{ $artikel->judul }}
 				<label class="sub header">
-					02:02:32 12-12-2018 | <a href="{{ url('kategori/',$artikel->kategori->nama_kategori) }}" class="ui tiny blue label"><i class="setting icon"></i>{{ $artikel->kategori->nama_kategori }}</a>
+					{{ $artikel->created_at->format('h:i:s j-m-Y') }} | <a href="{{ url('kategori/',$artikel->kategori->nama_kategori) }}" class="ui tiny blue label"><i class="setting icon"></i>{{ $artikel->kategori->nama_kategori }}</a>
 				</label>
 			</h1>
 			<div class="ui divider"></div>
