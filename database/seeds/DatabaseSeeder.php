@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(tagSeeder::class);
         $this->call(adminSeeder::class);
         $this->call(artikelSeeder::class);
+        $this->call(tamuSeeder::class);
     }
 }

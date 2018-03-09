@@ -12,6 +12,7 @@ try {
 
 //    require('bootstrap-sass');
 	require('sass-semantic-ui');
+	require('chart.js');
 } catch (e) {}
 
 /**

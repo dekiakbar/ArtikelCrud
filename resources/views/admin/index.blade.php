@@ -130,6 +130,12 @@
 			</div>
 		</div>
 
+		<div class="ui segment">
+			<div style="max-width:100%;">
+    				{!! $chart->render() !!}
+			</div>
+		</div>
+
 		<div class="ui two column stackable grid">
 			
 		    <div class="nine wide column">

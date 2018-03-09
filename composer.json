@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "chencha/share": "^5.2",
         "fideloper/proxy": "~3.3",
+        "fx3costa/laravelchartjs": "^2.5",
         "hisorange/browser-detect": "^3.1",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
