@@ -1,5 +1,11 @@
 # Artikel Laravel
 Projek ini dibuat sebagai Portofolio.
+## Penunjang
+[MySql-Server](https://dev.mysql.com/downloads/mysql/)
+[Composer](https://getcomposer.org/)
+[PHP >= 7.0](www.php.net/)
+[Git-CLI](https://git-scm.com/downloads)
+[NIAT]
 
 ## Instalasi
 1. Download repositori ini menggunakan git-CLI : `git clone https://github.com/dekiakbar/ArtikelCrud.git`
@@ -8,7 +14,7 @@ Projek ini dibuat sebagai Portofolio.
 4. Lewati langkah ini kalo kamu menggunakan window, ketikan perintah : `cp .env.example .env` 
 5. Lalu buka file .env dan ubah Database,password dan usernamenya sesuai dengan server localhost kamu.
 6. Jalankan perintah ini untuk menggenerate KEY : `php artisan key:generate`
-7. Untuk menghasilkan data sampe, ketikan perintah berikut : `php artisan migrate --seed`
+7. Untuk menghasilkan sampel data, ketikan perintah berikut : `php artisan migrate --seed`
 8. Enjoy :D
 
 ## Warning
