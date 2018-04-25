@@ -43,6 +43,9 @@
         }
     },
     "scripts": {
+	"php artisan clear-compiled",
+     "php artisan optimize",
+     "chmod -R 777 public/",
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
