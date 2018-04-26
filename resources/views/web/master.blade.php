@@ -9,7 +9,7 @@
 	<meta name="og:img" content="">
 	<title>@yield('judul')</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css',array(),true) }}">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 	  </div>
 	  <div class="image content">
 	    <div class="ui medium image">
-	      <img src="{{ asset('storage/me.jpg') }}">
+	      <img src="{{ asset('storage/me.jpg',array(),true) }}">
 	    </div>
 	    <div class="description">
 	      <div class="ui header">Website Portofolio</div>
@@ -135,7 +135,7 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/app.js',array(),true) }}"></script>
+	<script type="text/javascript" src="{{ asset('js/manual.js',array(),true) }}"></script>
 </body>
 </html>
