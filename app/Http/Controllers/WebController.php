@@ -90,13 +90,11 @@ class WebController extends Controller
     public function cari(Request $request)
     {
         $cari       = $request->input('cari');
-        $tgaId      = Tag::where('slug','like', '%'.$cari.'%')->first();
 
         $tags       = Tag::all();
         $kategoris  = Kategori::all();
         $barus      = Artikel::latest()->take(3)->get();
         $artikels   = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id','foto')
-                            ->whereRaw('FIND_IN_SET('.$tgaId->id.', tag_id)')
                             ->orwhereHas('kategori', function($query) use($cari) {
                                 $query->where('nama_kategori', 'like', '%'.$cari.'%');
                             })
