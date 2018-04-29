@@ -127,10 +127,8 @@
 	<footer style="margin-top: 10px;">
 		<div class="ui segment center aligned blue">
 			<p>&copy;{!! date('Y') !!} 
-				<a href="https://dekiakbar.com">Deki Akbar</a> | Made With :
-				<a target="_blank" href="https://Laravel.com">Laravel</a>
+				<a href="https://dekiakbar.com">Deki Akbar</a> | Made With 
 				<i class="large pink heartbeat icon"></i>
-				<a target="_blank" href="https://Semantic-ui.com">Semantic</a>
 			</p>
 		</div>
 	</footer>

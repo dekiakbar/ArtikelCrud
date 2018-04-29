@@ -23,8 +23,8 @@ class WebController extends Controller
     {
     	$tags      = Tag::all();
     	$kategoris = Kategori::all();
-    	$barus     = Artikel::latest()->take(3)->get();
-    	$artikels  = Artikel::with('kategori')->paginate(5);
+    	$barus     = Artikel::where('status','release')->latest()->take(3)->get();
+    	$artikels  = Artikel::with('kategori')->where('status','release')->paginate(5);
 
         $bagikan   = Share::load($this->nama_domain, $this->quote_share)
                         ->services('facebook','twitter','linkedin','telegram');
@@ -68,9 +68,10 @@ class WebController extends Controller
         $idTag     = Tag::where('slug',$slug)->firstOrFail();
     	$tags      = Tag::all();
     	$kategoris = Kategori::all();
-    	$barus     = Artikel::latest()->take(3)->get();
+    	$barus     = Artikel::where('status','release')->latest()->take(3)->get();
     	$artikels  = Artikel::select('*')
                         ->whereRaw('FIND_IN_SET('.$idTag->id.',tag_id)')
+                        ->where('status','release')
                         ->paginate(5);
 
         $bagikan   = Share::load($this->nama_domain.'tag/'.$idTag->slug, $this->quote_share)
@@ -93,7 +94,7 @@ class WebController extends Controller
 
         $tags       = Tag::all();
         $kategoris  = Kategori::all();
-        $barus      = Artikel::latest()->take(3)->get();
+        $barus      = Artikel::where('status','release')->latest()->take(3)->get();
         $artikels   = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id','foto')
                             ->orwhereHas('kategori', function($query) use($cari) {
                                 $query->where('nama_kategori', 'like', '%'.$cari.'%');
@@ -102,6 +103,7 @@ class WebController extends Controller
                                 $query->where('nama_tag', 'like', '%'.$cari.'%');
                             })
                             ->orWhere("judul", "LIKE","%$cari%")
+                            ->orWhere('status','release')
                             ->orderBy('created_at', 'desc')
                             ->paginate(5);
 
@@ -123,8 +125,8 @@ class WebController extends Controller
     {
         $tags       = Tag::all();
         $kategoris  = Kategori::all();
-        $barus      = Artikel::latest()->take(3)->get();
-        $artikel    = Artikel::with('kategori')->where('artikel.slug',$slug)->firstOrFail();
+        $barus      = Artikel::where('status','release')->latest()->take(3)->get();
+        $artikel    = Artikel::with('kategori')->where('artikel.slug',$slug)->where('status','release')->firstOrFail();
 
         $bagikan    = Share::load($this->nama_domain.'detail/'.$slug, $this->quote_share)
                             ->services('facebook','twitter','linkedin','telegram');
