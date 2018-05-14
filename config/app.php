@@ -166,6 +166,7 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Chencha\Share\ShareServiceProvider::class,
         \hisorange\BrowserDetect\ServiceProvider::class,
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
 
         /*
          * Package Service Providers...
