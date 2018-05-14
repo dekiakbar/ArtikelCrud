@@ -6,8 +6,8 @@
 	<meta name="" content="">
 	<title>@yield('judul')</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/manual.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_assetsecure_asset('css/app.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_assetsecure_asset('css/manual.css') }}">
 
 </head>
 <body>
@@ -107,7 +107,7 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 	<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 	<script type="text/javascript">
@@ -122,6 +122,6 @@
     		filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
 		});
 	</script>
-	<script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/manual.js') }}"></script>
 </body>
 </html>
