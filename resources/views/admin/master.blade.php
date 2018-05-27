@@ -6,8 +6,8 @@
 	<meta name="" content="">
 	<title>@yield('judul')</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="stylesheet" type="text/css" href="{{ secure_assetsecure_asset('css/app.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ secure_assetsecure_asset('css/manual.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/manual.css') }}">
 
 </head>
 <body>
