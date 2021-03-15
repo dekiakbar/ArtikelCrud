@@ -33,7 +33,7 @@ class artikelSeeder extends Seeder
     	$status = ['release','release','release','release','release','release'];
 
     	$isi = [
-    		'<h2><img alt="" src="http://localhost:8000/media/photos/1/5a95e8f2ba956.jpg" style="height:418px; width:670px" /></h2>
+    		'<h2><img alt="" src="'.secure_url('/storage').'/photos/1/5a95e8f2ba956.jpg" style="height:418px; width:670px" /></h2>
            
            <h2>Pengertian Ubuntu</h2>
            
@@ -73,7 +73,7 @@ class artikelSeeder extends Seeder
            
            <p>Pada desktop ubuntu memakai desktop environment graphic , desktop ubuntu yang paling terkenal yaitu :</p>
 		',
-    		'<h3><img alt="" src="http://localhost:8000/media/photos/1/5a95e00dc80e3.jpg" style="height:383px; width:613px" /></h3>
+    		'<h3><img alt="" src="'.secure_url('/storage').'/photos/1/5a95e00dc80e3.jpg" style="height:383px; width:613px" /></h3>
            
            <h3>Kelebihan dan Kekurangan Linux</h3>
            
@@ -106,7 +106,7 @@ class artikelSeeder extends Seeder
            
            <p>User awam akan mengalami kesulitan ketika pertama kali menggunakan Linux, karena sistem operasi ini sama sekali berbeda dengan sistem operasi populer semacam Windows.</p>'
            ,
-           ' <p><img alt="" src="http://localhost:8000/media/photos/1/5a95f749936b8.jpg" style="height:288px; width:435px" /></p>
+           ' <p><img alt="" src="'.secure_url('/storage').'/photos/1/5a95f749936b8.jpg" style="height:288px; width:435px" /></p>
            
            <p><strong>Arduino</strong> adalah pengendali mikro single-board yang bersifat open-source, diturunkan dari Wiring platform, dirancang untuk memudahkan penggunaan elektronik dalam berbagai bidang. Hardwarenya memiliki prosesor Atmel AVR dan softwarenya memiliki bahasa pemrograman sendiri. Saat ini Arduino sangat populer di seluruh dunia. Banyak pemula yang belajar mengenal robotika dan elektronika lewat Arduino karena mudah dipelajari. Tapi tidak hanya pemula, para hobbyist atau profesional pun ikut senang mengembangkan aplikasi elektronik menggunakan Arduino. Bahasa yang dipakai dalam Arduino bukan assembler yang relatif sulit, tetapi bahasa C yang disederhanakan dengan bantuan pustaka-pustaka (libraries) Arduino. Arduino juga menyederhanakan proses bekerja dengan mikrokontroler, sekaligus menawarkan berbagai macam kelebihan antara lain:</p>
            
@@ -114,7 +114,7 @@ class artikelSeeder extends Seeder
            
            <p>* Sederhana dan mudah pemrogramannya &ndash; Perlu diketahui bahwa lingkungan pemrograman di Arduino mudah digunakan untuk pemula, dan cukup fleksibel bagi mereka yang sudah tingkat lanjut. Untuk guru/dosen, Arduino berbasis pada lingkungan pemrograman Processing, sehingga jika mahasiswa atau murid-murid terbiasa menggunakan Processing tentu saja akan mudah menggunakan Arduino.</p>'
         ,
-        '<p><img alt="" src="http://localhost:8000/media/photos/1/5a95fce670872.jpg" style="height:280px; width:550px" /></p>
+        '<p><img alt="" src="'.secure_url('/storage').'/photos/1/5a95fce670872.jpg" style="height:280px; width:550px" /></p>
 
 			<p><strong>Apa itu Resistor ?</strong> Resistor adalah komponen dasar&nbsp; elektronika&nbsp; yang digunakan untuk membatasi jumlah arus yang mengalir&nbsp; dalam&nbsp; satu&nbsp; rangkaian.&nbsp; Sesuai&nbsp; dengan&nbsp; namanya&nbsp; resistor&nbsp; bersifat&nbsp; resistif&nbsp; dan umumnya&nbsp; terbuat&nbsp; dari&nbsp; bahan&nbsp; karbon. Dari&nbsp; hukum&nbsp; Ohms&nbsp; diketahui,&nbsp; resistansi&nbsp; berbanding&nbsp; terbalik dengan jumlah&nbsp; arus&nbsp; yang&nbsp; mengalir&nbsp; melaluinya.&nbsp; Satuan&nbsp; untuk resistansi&nbsp; pada&nbsp; resistor&nbsp; disebut&nbsp; Ohm dengan simbol&nbsp; Ω (Omega).&nbsp;</p>
 
