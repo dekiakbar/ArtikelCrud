@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ config('app.locale')}}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
 	  </div>
 	  <div class="image content">
 	    <div class="ui medium image">
-	      <img src="{{ secure_asset('storage/me.jpg',array(),true) }}">
+	      <img width="300px" height="200px" src="{{ secure_asset('storage/me.jpg',array(),true) }}">
 	    </div>
 	    <div class="description">
 	      <div class="ui header">Website Portofolio</div>
@@ -138,7 +138,7 @@
 	<footer style="margin-top: 10px;">
 		<div class="ui segment center aligned blue">
 			<p>&copy;{!! date('Y') !!} 
-				<a href="https://dekiakbar.com">Deki Akbar</a> | Made With 
+				<a href="{{secure_url('/')}}">Deki Akbar</a> | Made With 
 				<i class="large pink heartbeat icon"></i>
 			</p>
 		</div>
