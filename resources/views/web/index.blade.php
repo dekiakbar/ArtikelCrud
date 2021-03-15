@@ -1,5 +1,8 @@
 @extends('web.master')
-@section('judul','Artikel Laravel')
+@section('judul', config('app.name') )
+@section('url',  secure_url('/') )
+@section('deskripsi', "website simple blog yang dibuat dengan laravel 5 dan semantic UI" )
+@section('image', "https://simpleblog.apps.nooby.dev/storage/foto/1520092297.png")
 
 @section('isi')
 		<div class="twelve wide column">

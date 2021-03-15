@@ -1,5 +1,9 @@
 @extends('web.master')
-@section('judul','Artikel | '.$artikel->judul)
+@section('judul', config('app.name').' | '.$artikel->judul)
+
+@section('url',  secure_url('/') )
+@section('deskripsi', $artikel->kutipan )
+@section('image', asset('storage/foto')."/".$artikel->foto )
 
 @section('isi')
 	<div class="twelve wide column">

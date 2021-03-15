@@ -3,12 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keyword" content="">
-	<meta name="og:title" content="">
-	<meta name="og:des" content="">
-	<meta name="og:img" content="">
 	<title>@yield('judul')</title>
+	<meta name="description" content="@yield('deskripsi')">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="@yield('url')">
+	<meta property="og:title" content="@yield('judul')">
+	<meta property="og:description" content="@yield('deskripsi')">
+	<meta property="og:image" content="@yield('image')">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="@yield('url')">
+	<meta property="twitter:title" content="@yield('judul')">
+	<meta property="twitter:description" content="@yield('deskripsi')">
+	<meta property="twitter:image" content="@yield('image')">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css',array(),true) }}">
 </head>
