@@ -11,7 +11,7 @@
 				</label>
 			</h1>
 			<div class="ui divider"></div>
-			{{-- <img class="ui medium left floated rounded image" src="{{ asset('storage/foto') }}/{{ $artikel->foto }}"></img> --}}
+			<img class="ui medium left floated rounded image" src="{{ asset('storage/foto') }}/{{ $artikel->foto }}"></img>
 			<p style="margin-bottom: 30px;">{{ $artikel->kutipan }}</p>
 			<div class="ui divider"></div>
 			@php
