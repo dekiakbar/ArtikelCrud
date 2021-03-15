@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@yield('judul')</title>
 	<meta name="description" content="@yield('deskripsi')">
+	<meta name="robots" content="noindex,nofollow" />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
@@ -122,10 +123,10 @@
 
 				<div class="ui horizontal list">
 					<div class="item">
-						<a target="_blank" href="{{ $bagikan->facebook }}"><i class="big facebook icon"></i></a>
-						<a target="_blank" href="{{ $bagikan->twitter }}"><i class="big twitter square icon"></i></a>
-						<a target="_blank" href="{{ $bagikan->linkedin }}"><i class="big linkedin square icon"></i></a>
-						<a target="_blank" href="{{ $bagikan->telegram }}"><i class="big telegram icon"></i></a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->facebook }}"><i class="big facebook icon"></i></a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->twitter }}"><i class="big twitter square icon"></i></a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->linkedin }}"><i class="big linkedin square icon"></i></a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->telegram }}"><i class="big telegram icon"></i></a>
 					</div>
 				</div>
 			</div>

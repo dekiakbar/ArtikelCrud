@@ -2,9 +2,9 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
-//@import "variables";
-
 // Bootstrap
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~sass-semantic-ui/src/semantic-ui.scss";
+
+// Custom
+@import "custom";

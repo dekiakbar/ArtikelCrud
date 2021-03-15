@@ -16,7 +16,7 @@
 
 					<div class="ui divider"></div>
 
-					<img class="ui medium left floated rounded image" src="{{ asset('storage/foto') }}/{{ $artikel->foto }}">
+					<img alt="{{ $artikel->judul }}" class="ui medium left floated rounded image" src="{{ asset('storage/foto') }}/{{ $artikel->foto }}">
 					<p>{{ $artikel->kutipan }}</p>
 
 					<div class="ui divider"></div>
