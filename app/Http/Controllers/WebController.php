@@ -16,9 +16,14 @@ use Chencha\Share\ShareFacade as Share;
 class WebController extends Controller
 {
     //setting nama domain dan quote share
-    private $nama_domain= 'http://localhost:8000/';
-    private $quote_share= 'Artikel Laravel';
-
+    public $nama_domain;
+    public $quote_share;
+    
+    public function __construct()
+    {
+    	$this->nama_domain = config('app.url');
+	$this->quote_share = config('app.name');
+    }
     public function tampil(Request $request)
     {
     	$tags      = Tag::all();
@@ -91,19 +96,19 @@ class WebController extends Controller
     public function cari(Request $request)
     {
         $cari       = $request->input('cari');
-
+	
         $tags       = Tag::all();
         $kategoris  = Kategori::all();
         $barus      = Artikel::where('status','release')->latest()->take(3)->get();
-        $artikels   = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id','foto')
+	$artikels   = Artikel::select('kutipan','slug','judul','created_at','tag_id','kategori_id','foto')
                             ->orwhereHas('kategori', function($query) use($cari) {
                                 $query->where('nama_kategori', 'like', '%'.$cari.'%');
                             })
                             ->orWhereHas('tag', function($query) use($cari) {
                                 $query->where('nama_tag', 'like', '%'.$cari.'%');
-                            })
-                            ->orWhere("judul", "LIKE","%$cari%")
-                            ->orWhere('status','release')
+			    })
+                            ->orWhere("judul", "LIKE","%".$cari."%")
+                            ->where('status','release')
                             ->orderBy('created_at', 'desc')
                             ->paginate(5);
 
