@@ -1,10 +1,20 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600&display=swap");
 
 // Bootstrap
-//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~sass-semantic-ui/src/semantic-ui.scss";
 
-// Custom
-@import "custom";
+.ui.action.input input[type="file"] {
+    display: none;
+}
+
+/*error page 404*/
+#margin404{
+    padding-top: 20% !important;
+}
+
+/*margin Form kategori*/
+#marginKategori{
+    margin-bottom: 277px;
+}

@@ -2,7 +2,7 @@
     <div class="ui pagination menu">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <a class="icon item disabled"> <i class="left chevron icon"></i> </a>
+            <a href="{{ url('/') }}" class="icon item disabled"> <i class="left chevron icon"></i> </a>
         @else
             <a class="icon item" href="{{ $paginator->previousPageUrl() }}" rel="prev"> <i class="left chevron icon"></i> </a>
         @endif
@@ -11,7 +11,7 @@
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
             @if (is_string($element))
-                <a class="icon item disabled">{{ $element }}</a>
+                <a href="{{ url('/') }}" class="icon item disabled">{{ $element }}</a>
             @endif
 
             {{-- Array Of Links --}}
@@ -30,7 +30,7 @@
         @if ($paginator->hasMorePages())
             <a class="icon item" href="{{ $paginator->nextPageUrl() }}" rel="next"> <i class="right chevron icon"></i> </a>
         @else
-            <a class="icon item disabled"> <i class="right chevron icon"></i> </a>
+            <a href="{{ url('/') }}" class="icon item disabled"> <i class="right chevron icon"></i> </a>
         @endif
     </div>
 @endif

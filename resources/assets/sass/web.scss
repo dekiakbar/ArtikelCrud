@@ -1,0 +1,75 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600&display=swap");
+
+// Bootstrap
+// @import "~sass-semantic-ui/src/semantic-ui.scss";
+
+$icons-font-path: '~sass-semantic-ui/src/icons/' !default;
+$flags-image-path: '~sass-semantic-ui/src/images/' !default;
+@import "~sass-semantic-ui/src/scss/variables/font";
+$body-bg-color:#FFFFFF !default;
+$body-font-color:rgba(0, 0, 0, 0.87) !default;
+$font-color: rgba(0, 0, 0, 0.87) !default;
+$secondary-font: rgba(0, 0, 0, 0.4) !default;
+$a-font-color:#2061a2 !default;
+$a-hover-font-color: #1e70bf !default;
+$red:#DB2828 !default;
+$orange:#F2711C !default;
+$yellow:#FBBD08 !default;
+$olive:#B5CC18 !default;
+$green:#21BA45 !default;
+$teal:#006059 !default;
+$blue:#0063b0 !default;
+$violet:#6435C9 !default;
+$purple:#A333C8 !default;
+$pink:#E03997 !default;
+$brown:#A5673F !default;
+$grey:#767676 !default;
+$white:#FFFFFF !default;
+$inverted-label:rgba(255, 255, 255, 0.9) !default;
+$inverted-red:#FF695E !default;
+$inverted-orange:#FF851B !default;
+$inverted-yellow:#FFE21F !default;
+$inverted-olive:#D9E778 !default;
+$inverted-green:#2ECC40 !default;
+$inverted-teal:#6DFFFF !default;
+$inverted-blue:#54C8FF !default;
+$inverted-violet:#A291FB !default;
+$inverted-purple:#DC73FF !default;
+$inverted-pink:#FF8EDF !default;
+$inverted-brown:#D67C1C !default;
+$inverted-grey:#DCDDDE !default;
+
+@import "~sass-semantic-ui/src/scss/variables/buttons";
+@import "~sass-semantic-ui/src/scss/mixins/mix";
+@import '~sass-semantic-ui/src/scss/globals/all';
+@import '~sass-semantic-ui/src/scss/elements/button';
+@import '~sass-semantic-ui/src/scss/elements/container';
+@import '~sass-semantic-ui/src/scss/elements/divider';
+@import '~sass-semantic-ui/src/scss/elements/header';
+@import '~sass-semantic-ui/src/scss/elements/icon';
+@import '~sass-semantic-ui/src/scss/elements/image';
+@import '~sass-semantic-ui/src/scss/elements/input';
+@import '~sass-semantic-ui/src/scss/elements/label';
+@import '~sass-semantic-ui/src/scss/elements/list';
+@import '~sass-semantic-ui/src/scss/elements/segment';
+@import '~sass-semantic-ui/src/scss/collections/form';
+@import '~sass-semantic-ui/src/scss/collections/grid';
+@import '~sass-semantic-ui/src/scss/collections/menu';
+@import '~sass-semantic-ui/src/scss/views/item';
+@import '~sass-semantic-ui/src/scss/modules/dimmer';
+@import '~sass-semantic-ui/src/scss/modules/dropdown';
+@import '~sass-semantic-ui/src/scss/modules/modal';
+@import '~sass-semantic-ui/src/scss/modules/search';
+@import '~sass-semantic-ui/src/scss/modules/sidebar';
+@import '~sass-semantic-ui/src/scss/modules/transition';
+
+@media screen and (max-width:768px){
+    .ui.vertical.menu {
+        width: 100%;
+    }
+    .ui.tiny.label {
+        margin: 3px;
+    }
+}

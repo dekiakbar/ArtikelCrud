@@ -20,7 +20,7 @@
 	<meta property="twitter:description" content="@yield('deskripsi')">
 	<meta property="twitter:image" content="@yield('image')">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css',array(),true) }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/web.css',array(),true) }}">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 		<a href="{{ url('/') }}" class="header item">
     		Artikel Laravel
 		</a>
-		<a class="active item">
+		<a href="{{ url('/') }}" class="active item">
 			Home
 		</a>
 		<a onclick="tentang()" class="item">
@@ -115,17 +115,25 @@
 			</div>
 
 			<div class="ui segment raised center aligned">
-				<h4 class="ui tiny horizontal divider header">
+				<h2 class="ui tiny horizontal divider header">
 					<i class="share icon"></i>
 					Share
-				</h4>
+				</h2>
 
 				<div class="ui horizontal list">
 					<div class="item">
-						<a rel="noopener" target="_blank" href="{{ $bagikan->facebook }}"><i class="big facebook icon"></i></a>
-						<a rel="noopener" target="_blank" href="{{ $bagikan->twitter }}"><i class="big twitter square icon"></i></a>
-						<a rel="noopener" target="_blank" href="{{ $bagikan->linkedin }}"><i class="big linkedin square icon"></i></a>
-						<a rel="noopener" target="_blank" href="{{ $bagikan->telegram }}"><i class="big telegram icon"></i></a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->facebook }}">
+							<i class="big facebook icon"></i>
+						</a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->twitter }}">
+							<i class="big twitter square icon"></i>
+						</a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->linkedin }}">
+							<i class="big linkedin square icon"></i>
+						</a>
+						<a rel="noopener" target="_blank" href="{{ $bagikan->telegram }}">
+							<i class="big telegram icon"></i>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -144,7 +152,7 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="{{ secure_asset('js/app.js',array(),true) }}"></script>
+	<script type="text/javascript" src="{{ secure_asset('js/web.js',array(),true) }}"></script>
 	<script type="text/javascript" src="{{ secure_asset('js/manual.js',array(),true) }}"></script>
 </body>
 </html>

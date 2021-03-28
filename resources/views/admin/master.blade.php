@@ -8,8 +8,6 @@
 	<title>@yield('judul')</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/manual.css') }}">
-
 </head>
 <body>
 	<div class="ui secondary pointing menu grid computer only blue">
